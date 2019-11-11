@@ -17,50 +17,51 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     
     UserLoginGUI() {
 
-         // This is the label for the username and text field for the user input
-         userLabel = new JLabel();
-         userLabel.setText("User Name :");
-         usernameText = new JTextField();
-         
-         // Label for the password and the textfield for the user input
- 
-         passwordLabel = new JLabel();
-         passwordLabel.setText("Password :");
-         passwordText = new JPasswordField();
- 
+        // This is the label for the username and text field for the user input
+        userLabel = new JLabel();
+        userLabel.setText("User Name :");
+        usernameText = new JTextField();
         
+        // Label for the password and the textfield for the user input
+
+        passwordLabel = new JLabel();
+        passwordLabel.setText("Password :");
+        passwordText = new JPasswordField();
+
+    
         // Button for the login action
-         login = new JButton("login");
- 
-         // Creating the panel
-         panel = new JPanel(new GridLayout(0,1, 10, 10));
- 
-         panel.add(userLabel);
-         panel.add(usernameText);
-         panel.add(passwordLabel);
-         panel.add(passwordText);
- 
-         message = new JLabel();
-         panel.add(message);
-         panel.add(login);
-         
-         // Adding the listener
-         login.addActionListener(this);
+        login = new JButton("login");
 
-         // Settings for the frame
-         add(panel, BorderLayout.CENTER);
-         setTitle("Login");
-         setSize(500, 100);
-         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         setVisible(true);
- 
-     }
+        // Creating the panel
+        panel = new JPanel(new GridLayout(0,1, 10, 10));
+    
+        // Can add more colums and rows and place boxes or buttons in specific spots such as
+        // panel.add(userlabel, 0, 0)
+        panel.add(userLabel);
+        panel.add(usernameText);
+        panel.add(passwordLabel);
+        panel.add(passwordText);
 
-     public static void main(String[] args) {
+        message = new JLabel();
+        panel.add(message);
+        panel.add(login);
+        
+        // Adding the listener
+        login.addActionListener(this);
+        // Settings for the frame
+        add(panel, BorderLayout.CENTER);
+        setTitle("Login");
+        setSize(500, 100);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+ 
+    }
+
+    public static void main(String[] args) {
         new UserLoginGUI();
     }
-     @Override
-     public void actionPerformed(ActionEvent ae) {
+    @Override
+    public void actionPerformed(ActionEvent ae) {
         System.out.println("Logged in");
-     }
+    }
 }
