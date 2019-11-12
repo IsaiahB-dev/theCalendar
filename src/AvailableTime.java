@@ -1,9 +1,60 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class AvailableTime {
-    Calendar time = new GregorianCalendar();
+    public int startTime;
+    public int endTime;
+    public ArrayList<Integer> days;
+
+    public AvailableTime(int startTime, int endTime, ArrayList<Integer> days) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.days = days;
+    }
+
+    public int getStartTime() {
+        return startTime;
+    }
+
+    public int getEndTime() {
+        return endTime;
+    }
+
+    public ArrayList<Integer> getDays() {
+        return days;
+    }
+
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setDays(ArrayList<Integer> days) {
+        this.days = days;
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+/*  Calendar time = new GregorianCalendar();
 
   private Date startTime = new Date();
   private Date endTime = new Date();
@@ -32,13 +83,9 @@ public class AvailableTime {
     public int getPriority() {
         return priority;
     }
-
+*/
 
 
 
 //public void time(int year, int month, int dayOfMonth, int hourOfDay, int minute)
-    //{}
-
-
-
-}
+//{}

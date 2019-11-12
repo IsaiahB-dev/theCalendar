@@ -40,38 +40,3 @@ public class CalendarRanker {
 
 }
 
-public class aAvailableTime {
-    public int startTime;
-    public int endTime;
-    public ArrayList<Int> days;
-
-    public aAvailableTime(int startTime, int endTime, ArrayList<Int> days) {
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.days = days;
-    }
-
-    public int getStartTime() {
-        return startTime;
-    }
-
-    public int getEndTime() {
-        return endTime;
-    }
-
-    public ArrayList<Int> getDays() {
-        return days;
-    }
-
-    public void setStartTime(int startTime) {
-        this.startTime = startTime;
-    }
-
-    public void setEndTime(int endTime) {
-        this.endTime = endTime;
-    }
-
-    public void setDays(ArrayList<Int> days) {
-        this.days = days;
-    }
-}
