@@ -6,9 +6,8 @@ import javax.swing.*;
 // Displays ranking list of people whose schedules best match user
 //
 
-public class RankingsGUI
-{
-    public static void main(String[] args)
+public class RankingsGUI {
+    RankingsGUI()
     {
         JFrame frame = new JFrame("RankingGUI Test Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,14 +16,14 @@ public class RankingsGUI
 
         // Create panel to display the ranking of people
         // with best-matched schedules
-        JPanel rankingP = new JPanel("Best-Matched Schedules:");
+        JPanel rankingP = new JPanel();
 
         // give ranking panel a Box Layout
         rankingP.setLayout(new BoxLayout(rankingP, BoxLayout.Y_AXIS));
 
         for(int i=1; i<=10; i++) {
             String name = "Bob" + " " + i;
-            static JLabel label = new JLabel(name);
+            JLabel label = new JLabel(name);
             rankingP.add(label);
         }
 
