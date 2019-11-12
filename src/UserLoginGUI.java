@@ -32,8 +32,9 @@ public class UserLoginGUI extends JFrame implements ActionListener{
         // Button for the login action
         login = new JButton("login");
 
-        // Creating the panel
-        panel = new JPanel(new GridLayout(0,1, 10, 10));
+        // Creating the panel and setting a border around it
+        panel = new JPanel(new GridLayout(0, 2, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
     
         // Can add more colums and rows and place boxes or buttons in specific spots such as
         // panel.add(userlabel, 0, 0)
@@ -48,10 +49,11 @@ public class UserLoginGUI extends JFrame implements ActionListener{
         
         // Adding the listener
         login.addActionListener(this);
+
         // Settings for the frame
         add(panel, BorderLayout.CENTER);
         setTitle("Login");
-        setSize(500, 100);
+        setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
  
