@@ -10,15 +10,15 @@ import java.util.NoSuchElementException;
 // CalendarRanker re-ranks everyone when the user updates their calendar
 
 public class CalendarRanker {
-    public ArrayList<aUserCalendar> calendars;
-    public aUserCalendar userCalendar; // need to access the user's calendar
+    public ArrayList<UserCalendar> calendars;
+    public UserCalendar userCalendar; // need to access the user's calendar
 
-    public CalendarRanker(ArrayList<aUserCalendar> calendars, aUserCalendar userCalendar) {
+    public CalendarRanker(ArrayList<UserCalendar> calendars, UserCalendar userCalendar) {
         this.calendars = calendars;
         this.userCalendar = userCalendar;
     }
 
-    public void addCalendar(aUserCalendar acalendar) {
+    public void addCalendar(UserCalendar acalendar) {
         this.calendars.add(acalendar);
     }
 
@@ -31,10 +31,10 @@ public class CalendarRanker {
         // percent of matching hours.
 
         // Dummy operation
-        for(int i = 0; i<calendars.size(); i++) {
+        /*for(int i = 0; i<calendars.size(); i++) {
             this.calendars[i].setMatchPercent(30.0 + (double)i);
         }
-
+        */
 
     }
 
