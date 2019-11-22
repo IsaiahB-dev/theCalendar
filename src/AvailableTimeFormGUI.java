@@ -19,11 +19,11 @@ public class AvailableTimeFormGUI extends JFrame {
         //sets the frame and title of the frame's window
         timeWindow = new JFrame("Available Time Form");
 
-        //Created labels for the start and endtime placeholders
+        //Created labels for the start time, end time, and day placeholders
         startTimeLabel = new JLabel("Enter Start Time");
         endTimeLabel = new JLabel("Enter End Time");
         dayLabel = new JLabel("Enter Day (1-7)");
-        //created temporary fields for a user to input their start and endtime.
+        //created temporary fields for a user to input their start time, end time, and day.
 
         startTextField = new JTextField();
         endTextField = new JTextField();
@@ -32,7 +32,7 @@ public class AvailableTimeFormGUI extends JFrame {
         panel = new JPanel(new GridLayout(5,5 , 2, 2));
         panel.setBorder(BorderFactory.createEmptyBorder(50, 10, 150, 10));
         add(panel, BorderLayout.CENTER);
-        //created buttons for the start and end times, along with bounds
+        //created a button for submission, along with bounds
         bSubmit = new JButton("Submit Here");
         bSubmit.setBounds(200, 150, 90, 50);
 
