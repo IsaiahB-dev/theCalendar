@@ -1,0 +1,14 @@
+<?xml version = "1.0"?>
+<Users>
+   <User1>
+      <firstName>Cameron</firstName>
+      <lastName>Howell</lastName>
+      <password>test1</password>
+   </User1>
+	
+   <User2>
+      <firstName>Jose</firstName>
+      <lastName>Garcia Becerra</lastName>
+      <password>test2</password>
+   </User2>
+</Users>

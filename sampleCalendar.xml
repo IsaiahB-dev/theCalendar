@@ -1,0 +1,200 @@
+<?xml version = "1.0"?>
+<calendars>
+    <test1>
+       <Monday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>9</startTime>
+                <endTime>11</endtime>
+                <priority>0</priority>
+            </Time1>
+
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>4</startTime>
+                <endTime>6</endtime>
+                <priority>0</priority>
+            </Time2>
+       </Monday>
+
+
+       <Tuesday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>10</startTime>
+                <endTime>11</endtime>
+                <priority>1</priority>
+            </Time1>
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>2</startTime>
+                <endTime>3</endtime>
+                <priority>0</priority>
+            </Time2>
+
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>6</startTime>
+                <endTime>8</endtime>
+                <priority>0</priority>
+            </Time3>
+       </Tuesday>
+
+
+       <Wednesday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>9</startTime>
+                <endTime>11</endtime>
+                <priority>0</priority>
+            </Time1>
+
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>4</startTime>
+                <endTime>6</endtime>
+                <priority>0</priority>
+            </Time2>
+       </Wednesday>
+
+
+       <Thursday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>10</startTime>
+                <endTime>11</endtime>
+                <priority>1</priority>
+            </Time1>
+            
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>2</startTime>
+                <endTime>3</endtime>
+                <priority>0</priority>
+            </Time2>
+
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>6</startTime>
+                <endTime>8</endtime>
+                <priority>0</priority>
+            </Time3>
+       </Thursday>
+
+
+       <Friday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>8</startTime>
+                <endTime>11</endtime>
+                <priority>1</priority>
+            </Time1>
+
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>12</startTime>
+                <endTime>2</endtime>
+                <priority>0</priority>
+            </time2>
+
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>6</startTime>
+                <endTime>8</endtime>
+                <priority>0</priority>
+            </Time3>
+       </Friday>
+    </test1>
+
+
+    <test2>
+    <Monday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>10</startTime>
+                <endTime>11</endtime>
+                <priority>1</priority>
+            </Time1>
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>6</startTime>
+                <endTime>8</endtime>
+                <priority>0</priority>
+            </Time2>
+       </Monday>
+       <Tuesday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>8</startTime>
+                <endTime>10</endtime>
+                <priority>0</priority>
+            </Time1>
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>3</startTime>
+                <endTime>5</endtime>
+                <priority>0</priority>
+            </Time2>
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>7</startTime>
+                <endTime>8</endtime>
+                <priority>0</priority>
+            </Time3>
+       </Tuesday>
+       <Wednesday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>10</startTime>
+                <endTime>12</endtime>
+                <priority>0</priority>
+            </Time1>
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>5</startTime>
+                <endTime>7</endtime>
+                <priority>0</priority>
+            </Time2>
+       </Wednesday>
+       <Thursday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>9</startTime>
+                <endTime>11</endtime>
+                <priority>0</priority>
+            </Time1>
+            <Time2>
+                <meridies>pm</meridies>
+                <startTime>12</startTime>
+                <endTime>1</endtime>
+                <priority>1</priority>
+            </Time2>
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>3</startTime>
+                <endTime>5</endtime>
+                <priority>0</priority>
+            </Time3>
+       </Thursday>
+       <Friday>
+            <Time1>
+                <meridies>am</meridies>
+                <startTime>8</startTime>
+                <endTime>9</endtime>
+                <priority>0</priority>
+            </Time1>
+            <Time2>
+                <meridies>am</meridies>
+                <startTime>10</startTime>
+                <endTime>12</endtime>
+                <priority>0</priority>
+            </time2>
+            <Time3>
+                <meridies>pm</meridies>
+                <startTime>4</startTime>
+                <endTime>7</endtime>
+                <priority>1</priority>
+            </Time3>
+       </Friday>
+    </test2>
+</calendars>
