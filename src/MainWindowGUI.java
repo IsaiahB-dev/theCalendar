@@ -1,13 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Calendar;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MainWindowGUI {
-    MainWindowGUI(){
+    MainWindowGUI() {
         JFrame frame = new JFrame("Calendar Scheduler");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.setSize(1000, 800);
 
         JPanel buttonsP = new JPanel();
 
@@ -18,21 +16,13 @@ public class MainWindowGUI {
 
         frame.add(buttonsP, BorderLayout.PAGE_START);
 
-        JInternalFrame rankingIF = new JInternalFrame();
-        RankingsGUI rankingP = new RankingsGUI();
-        rankingIF.add(rankingP);
-        frame.add(rankingIF, BorderLayout.LINE_END);
-        frame.add(rankingP, BorderLayout.CENTER);
-        rankingP.setVisible(true);
-        rankingIF.setVisible(true);
-
-        frame.pack();
+        RankingsGUI r = new RankingsGUI();
+        frame.add(r.rankingIFrame, BorderLayout.CENTER);
+        frame.setSize(1000, 800);
         frame.setVisible(true);
-
-
     }
 
-    public static void main(String args[]){
+    public static void main(String[] args) {
         new MainWindowGUI();
     }
 }
