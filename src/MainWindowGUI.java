@@ -18,9 +18,13 @@ public class MainWindowGUI {
 
         frame.add(buttonsP, BorderLayout.PAGE_START);
 
+        JInternalFrame rankingIF = new JInternalFrame();
         RankingsGUI rankingP = new RankingsGUI();
+        rankingIF.add(rankingP);
+        frame.add(rankingIF, BorderLayout.LINE_END);
         frame.add(rankingP, BorderLayout.CENTER);
         rankingP.setVisible(true);
+        rankingIF.setVisible(true);
 
         frame.pack();
         frame.setVisible(true);
