@@ -6,13 +6,14 @@ import java.util.GregorianCalendar;
 public class AvailableTime {
     public int startTime;
     public int endTime;
-    public ArrayList<Integer> days;
+    public int days;
 
-    public AvailableTime(int startTime, int endTime, ArrayList<Integer> days) {
+    public AvailableTime() {
         this.startTime = startTime;
         this.endTime = endTime;
         this.days = days;
     }
+
 
     public int getStartTime() {
         return startTime;
@@ -22,7 +23,7 @@ public class AvailableTime {
         return endTime;
     }
 
-    public ArrayList<Integer> getDays() {
+    public int getDays() {
         return days;
     }
 
@@ -34,10 +35,10 @@ public class AvailableTime {
         this.endTime = endTime;
     }
 
-    public void setDays(ArrayList<Integer> days) {
+    public void setDays(int days) {
+
         this.days = days;
     }
-
 
 
 

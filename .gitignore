@@ -1,3 +1,6 @@
 ##Adding files that we want git to ignore.
 
-.idea/misc.xml
+*.xml
+.DS_Store
+
+
