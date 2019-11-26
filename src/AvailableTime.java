@@ -7,8 +7,14 @@ public class AvailableTime {
     public int startTime;
     public int endTime;
     public int days;
+    public int month;
+    public int day;
+    public int year;
 
     public AvailableTime() {
+        this.month = month;
+        this.day = day;
+        this.year = year;
         this.startTime = startTime;
         this.endTime = endTime;
         this.days = days;
@@ -27,6 +33,12 @@ public class AvailableTime {
         return days;
     }
 
+    public int getMonth(){ return month; }
+
+    public int getDay(){ return day; }
+
+    public int getYear(){ return year; }
+
     public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
@@ -35,13 +47,13 @@ public class AvailableTime {
         this.endTime = endTime;
     }
 
-    public void setDays(int days) {
+    public void setDays(int days) { this.days = days; }
 
-        this.days = days;
-    }
+    public void setMonth(int month) { this.month = month;}
 
+    public void setDay(int day) { this.day = day;}
 
-
+    public void setYear(int year) { this.year = year; }
 
 
 
