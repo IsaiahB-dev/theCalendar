@@ -1,216 +1,217 @@
 <?xml version = "1.0"?>
 <calendars>
-    <test1>
-       <Monday>
-            <Time1>
+    <UserCalendar id= "1">
+       <Day name="Monday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
                 <endTime>11</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
                 <endTime>6</endtime>
                 <priority>0</priority>
-            </Time2>
-       </Monday>
+            </AvailableTime>
+       </Day>
 
 
-       <Tuesday>
-            <Time1>
+       <Day name="Tuesday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
                 <endTime>11</endtime>
                 <priority>1</priority>
-            </Time1>
-            <Time2>
+            </AvailableTime>
+
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>2</startTime>
                 <endTime>3</endtime>
                 <priority>0</priority>
-            </Time2>
+            </AvailableTime>
 
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
                 <endTime>8</endtime>
                 <priority>0</priority>
-            </Time3>
-       </Tuesday>
+            </AvailableTime>
+       </Day>
 
 
-       <Wednesday>
-            <Time1>
+       <Day name= "Wednesday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
                 <endTime>11</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
                 <endTime>6</endtime>
                 <priority>0</priority>
-            </Time2>
-       </Wednesday>
+            </AvailableTime>
+       </Day>
 
 
-       <Thursday>
-            <Time1>
+       <Day name= "Thursday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
                 <endTime>11</endtime>
                 <priority>1</priority>
-            </Time1>
+            </AvailableTime>
             
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>2</startTime>
                 <endTime>3</endtime>
                 <priority>0</priority>
-            </Time2>
+            </AvailableTime>
 
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
                 <endTime>8</endtime>
                 <priority>0</priority>
-            </Time3>
-       </Thursday>
+            </AvailableTime>
+       </Day>
 
 
-       <Friday>
-            <Time1>
+       <Day name= "Friday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
                 <endTime>11</endtime>
                 <priority>1</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>12</startTime>
                 <endTime>2</endtime>
                 <priority>0</priority>
-            </time2>
+            </AvailableTime>
 
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
                 <endTime>8</endtime>
                 <priority>0</priority>
-            </Time3>
-       </Friday>
-    </test1>
+            </AvailableTime>
+       </Day>
+    </UserCalendar>
 
 
-    <test2>
-        <Monday>
-            <Time1>
+    <UserCalendar id= "2">
+        <Day name= "Monday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
                 <endTime>11</endtime>
                 <priority>1</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
                 <endTime>8</endtime>
                 <priority>0</priority>
-            </Time2>
-       </Monday>
+            </AvailableTime>
+       </Day>
 
 
-       <Tuesday>
-            <Time1>
+       <Day name= "Tuesday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
                 <endTime>10</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>3</startTime>
                 <endTime>5</endtime>
                 <priority>0</priority>
-            </Time2>
+            </AvailableTime>
 
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>7</startTime>
                 <endTime>8</endtime>
                 <priority>0</priority>
-            </Time3>
-       </Tuesday>
+            </AvailableTime>
+       </Day>
 
 
-       <Wednesday>
-            <Time1>
+       <Day name= "Wednesday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
                 <endTime>12</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>5</startTime>
                 <endTime>7</endtime>
                 <priority>0</priority>
-            </Time2>
-       </Wednesday>
+            </AvailableTime>
+       </Day>
 
 
-       <Thursday>
-            <Time1>
+       <Day name= "Thursday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
                 <endTime>11</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>12</startTime>
                 <endTime>1</endtime>
                 <priority>1</priority>
-            </Time2>
+            </AvailableTime>
 
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>3</startTime>
                 <endTime>5</endtime>
                 <priority>0</priority>
-            </Time3>
-       </Thursday>
+            </AvailableTime>
+       </Day>
 
 
-       <Friday>
-            <Time1>
+       <Day name= "Friday">
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
                 <endTime>9</endtime>
                 <priority>0</priority>
-            </Time1>
+            </AvailableTime>
 
-            <Time2>
+            <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
                 <endTime>12</endtime>
                 <priority>0</priority>
-            </time2>
+            </Availabletime>
             
-            <Time3>
+            <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
                 <endTime>7</endtime>
                 <priority>1</priority>
-            </Time3>
-       </Friday>
-    </test2>
+            </AvailableTime>
+       </Day>
+    </UserCalendar>
 </calendars>
