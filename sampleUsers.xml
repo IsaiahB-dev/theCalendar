@@ -1,14 +1,12 @@
 <?xml version = "1.0"?>
 <Users>
    <User id= "1">
-      <firstName>Cameron</firstName>
-      <lastName>Howell</lastName>
+      <userName>Crh001</userName>
       <password>test1</password>
    </User>
 	
    <User id= "2">
-      <firstName>Jose</firstName>
-      <lastName>Garcia Becerra</lastName>
+      <userName>Jfb0009</userName>
       <password>test2</password>
    </User>
 </Users>
