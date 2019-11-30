@@ -2,10 +2,13 @@ import java.util.ArrayList;
 import java.util.*;
 public class UserCalendar {
 
+    // This is a list of the day class
+    // Each day class is an array list of available times
     private ArrayList<Day> availableTimes = new ArrayList<>();
     String user = "";
     public double matchPercent; // percent of primary user's
                                 // available time that matches
+    private int id;
 
     public UserCalendar(ArrayList<Day> availableTimeList, String userName) {
         this.availableTimes = availableTimeList;
