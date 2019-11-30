@@ -4,14 +4,28 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class AvailableTime {
+    // These are needed for reading from file
     public int startTime;
     public int endTime;
+    public int day;
+    private String medium;
+
+    // These are maybe needed to calculate for the parser but thats it 
     public int days;
     public int month;
-    public int day;
     public int year;
 
-    public AvailableTime() {
+    
+    /**
+     * This constructor is used for the parser
+     * @param month: Month the date lands on
+     * @param day: The day of the month the time lands on
+     * @param year: The year that the date lands on 
+     * @param startTime: Start time for the free time rounded to whole number
+     * @param endTime: End time for the free time rounded to whole number
+     * @param days: The number of days the time lands on (This does not seem necessary to me)
+     */
+    public AvailableTime(int month, int day, int year, int startTime, int endTime, int days) {
         this.month = month;
         this.day = day;
         this.year = year;
@@ -20,6 +34,25 @@ public class AvailableTime {
         this.days = days;
     }
 
+    /**
+     * This constructor is for classes being generated from reading a file.
+     * @param startTime: Starting hour for the free time
+     * @param endTime: Ending hour for the free time
+     * @param day: The day that the free time is scheduled
+     * @param medium: Wether the time is before or after noon
+     */
+    public AvailableTime(int startTime, int endTime, int day, String medium)
+    {
+        this.startTime = startTime;
+        this.day = day;
+        this.endTime = endTime;
+        this.medium = medium;
+    }
+
+    /**
+     * Default constructor that does nothing
+     */
+    public AvailableTime(){}
 
     public int getStartTime() {
         return startTime;
@@ -54,51 +87,4 @@ public class AvailableTime {
     public void setDay(int day) { this.day = day;}
 
     public void setYear(int year) { this.year = year; }
-
-
-
-
 }
-
-
-
-
-
-
-
-
-/*  Calendar time = new GregorianCalendar();
-
-  private Date startTime = new Date();
-  private Date endTime = new Date();
-  private  String date = "";
-  private int priority = 0;
-
-
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
-    public int getPriority() {
-        return priority;
-    }
-*/
-
-
-
-//public void time(int year, int month, int dayOfMonth, int hourOfDay, int minute)
-//{}
