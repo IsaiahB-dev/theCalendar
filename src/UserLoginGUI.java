@@ -4,10 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class UserLoginGUI extends JFrame implements ActionListener{
-    /**
-     * This is a serial id thing i dont really know what it does it just was giving me an error
-     */
-    private static final long serialVersionUID = 1L;
+    
     JPanel panel;
     JLabel userLabel, passwordLabel, message;
     JTextField usernameText;
@@ -59,9 +56,6 @@ public class UserLoginGUI extends JFrame implements ActionListener{
  
     }
 
-    public static void main(String[] args) {
-        new UserLoginGUI();
-    }
     @Override
     public void actionPerformed(ActionEvent ae) {
         System.out.println("Logged in");

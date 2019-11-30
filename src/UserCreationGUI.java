@@ -5,10 +5,7 @@ import java.awt.event.*;
 
 
 public class UserCreationGUI extends JFrame implements ActionListener{
-    /**
-     * Again idk about this just added it to remove error
-     */
-    private static final long serialVersionUID = 1L;
+    
     JPanel panel;
     JLabel userLabel, passwordLabel, passwordComfirmLabel;
     JTextField usernameText;
@@ -60,10 +57,6 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         setSize(500, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new UserCreationGUI();
     }
 
     // This is where we will add the calls to store the user in the database and log him in i believe
