@@ -2,9 +2,17 @@ import javax.swing.*;
 import javax.swing.plaf.basic.*;
 
 public class CalendarGUI {
-    JInternalFrame iFrame = new JInternalFrame();
+    public JInternalFrame calendarIFrame;
+    public BasicInternalFrameUI calendarBIFrame;
+
     CalendarGUI(){
-        BasicInternalFrameUI basicInternal = (BasicInternalFrameUI)iFrame.getUI();
-        basicInternal.setNorthPane(null);
+        calendarIFrame = new JInternalFrame();
+        JPanel calendarPanel = new JPanel();
+        calendarPanel.setLayout(new BoxLayout(calendarPanel, BoxLayout.Y_AXIS));
+        calendarPanel.setVisible(true);
+        calendarIFrame.add(calendarPanel);
+        calendarBIFrame = (BasicInternalFrameUI) calendarIFrame.getUI();
+        calendarBIFrame.setNorthPane(null);
+        calendarIFrame.setVisible(true);
     }
 }

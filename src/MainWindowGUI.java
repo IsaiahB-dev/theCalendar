@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.border.Border;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MainWindowGUI {
@@ -17,7 +18,9 @@ public class MainWindowGUI {
         frame.add(buttonsP, BorderLayout.PAGE_START);
 
         RankingsGUI r = new RankingsGUI();
-        frame.add(r.rankingIFrame, BorderLayout.CENTER);
+        CalendarGUI c = new CalendarGUI();
+        frame.add(r.rankingIFrame, BorderLayout.EAST);
+        frame.add(c.calendarIFrame, BorderLayout.WEST);
         frame.setSize(1000, 800);
         frame.setVisible(true);
     }
