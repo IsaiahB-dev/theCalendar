@@ -6,9 +6,9 @@ import java.awt.event.*;
 public class UserLoginGUI extends JFrame implements ActionListener{
     
     JPanel panel;
-    JLabel userLabel, passwordLabel, message;
+    JLabel userLabel, passwordLabel;
     JTextField usernameText, passwordText;
-    JButton login;
+    JButton login, newUser;
 
     
     UserLoginGUI() {
@@ -27,6 +27,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     
         // Button for the login action
         login = new JButton("login");
+        newUser = new JButton("New User");
 
         // Creating the panel and setting a border around it
         panel = new JPanel(new GridLayout(0, 2, 10, 10));
@@ -39,12 +40,12 @@ public class UserLoginGUI extends JFrame implements ActionListener{
         panel.add(passwordLabel);
         panel.add(passwordText);
 
-        message = new JLabel();
-        panel.add(message);
+        panel.add(newUser);
         panel.add(login);
         
         // Adding the listener
         login.addActionListener(this);
+        newUser.addActionListener(this);
 
         // Settings for the frame
         add(panel, BorderLayout.CENTER);
@@ -64,11 +65,19 @@ public class UserLoginGUI extends JFrame implements ActionListener{
             boolean result = user.login(usernameText.getText(), passwordText.getText());
 
             if (result == true) {
+                setVisible(false);
+                dispose();
                 new MainWindowGUI();
             }
             else {
                 JOptionPane.showMessageDialog(panel, "Incorrect Credentials try again.\n Or create new user.");
             }
+        }
+        else if (ae.getSource() == newUser)
+        {
+            setVisible(false);
+            dispose();
+            new UserCreationGUI();
         }
     }
 
