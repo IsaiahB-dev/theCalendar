@@ -1,6 +1,7 @@
 ##Adding files that we want git to ignore.
 
 *.xml
+*.class
 .DS_Store
 
 
