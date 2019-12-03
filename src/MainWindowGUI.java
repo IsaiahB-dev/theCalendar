@@ -26,7 +26,6 @@ public class MainWindowGUI {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new MainWindowGUI();
+    public static void main(String[] args) { new MainWindowGUI();
     }
 }
