@@ -128,10 +128,12 @@ public class DatabaseComm {
 
         // This is how you get users
         List<User> temp = stream.getUsers();    // Returns a list of users
-        User cam = temp.get(0);                 //  Accessing the first user in that list
+        for (int i = 0; i < temp.size(); i++) {
+            User tempUser = temp.get(i);                 //  Accessing the first user in that list
 
-        // Here i am just printing out the users username but this is where you can branch off to get what you want
-        System.out.println(cam.getUsername());
+            // Here i am just printing out the users username but this is where you can branch off to get what you want
+            System.out.println(tempUser.getUsername());
+        }
 
 
         // This is calling the get calendars function to get a list of UserCalendars
