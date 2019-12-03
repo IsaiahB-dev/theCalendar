@@ -76,7 +76,8 @@ public class UserCreationGUI extends JFrame implements ActionListener{
             List<User> users = stream.getUsers();
 
             // The new user to be used for this instance I dont know if this will be accessible after this
-            User user = new User(usernameText.getText(), passwordText.getText(), users.size() + 1); 
+            User user = new User(); 
+            user.createUser(usernameText.getText(), passwordText.getText());
             setVisible(false);
             dispose();
             new MainWindowGUI();
