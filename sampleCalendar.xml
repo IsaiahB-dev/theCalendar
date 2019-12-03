@@ -5,14 +5,14 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
-                <endTime>6</endtime>
+                <endTime>6</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -22,21 +22,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>1</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>2</startTime>
-                <endTime>3</endtime>
+                <endTime>3</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
-                <endTime>8</endtime>
+                <endTime>8</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -46,14 +46,14 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
-                <endTime>6</endtime>
+                <endTime>6</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -63,21 +63,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>1</priority>
             </AvailableTime>
             
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>2</startTime>
-                <endTime>3</endtime>
+                <endTime>3</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
-                <endTime>8</endtime>
+                <endTime>8</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -87,21 +87,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>1</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>12</startTime>
-                <endTime>2</endtime>
+                <endTime>2</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
-                <endTime>8</endtime>
+                <endTime>8</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -113,14 +113,14 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>1</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>6</startTime>
-                <endTime>8</endtime>
+                <endTime>8</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -130,21 +130,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
-                <endTime>10</endtime>
+                <endTime>10</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>3</startTime>
-                <endTime>5</endtime>
+                <endTime>5</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>7</startTime>
-                <endTime>8</endtime>
+                <endTime>8</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -154,14 +154,14 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
-                <endTime>12</endtime>
+                <endTime>12</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>5</startTime>
-                <endTime>7</endtime>
+                <endTime>7</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -171,21 +171,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>9</startTime>
-                <endTime>11</endtime>
+                <endTime>11</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>12</startTime>
-                <endTime>1</endtime>
+                <endTime>1</endTime>
                 <priority>1</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>3</startTime>
-                <endTime>5</endtime>
+                <endTime>5</endTime>
                 <priority>0</priority>
             </AvailableTime>
        </Day>
@@ -195,21 +195,21 @@
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>8</startTime>
-                <endTime>9</endtime>
+                <endTime>9</endTime>
                 <priority>0</priority>
             </AvailableTime>
 
             <AvailableTime>
                 <meridies>am</meridies>
                 <startTime>10</startTime>
-                <endTime>12</endtime>
+                <endTime>12</endTime>
                 <priority>0</priority>
-            </Availabletime>
+            </AvailableTime>
             
             <AvailableTime>
                 <meridies>pm</meridies>
                 <startTime>4</startTime>
-                <endTime>7</endtime>
+                <endTime>7</endTime>
                 <priority>1</priority>
             </AvailableTime>
        </Day>
