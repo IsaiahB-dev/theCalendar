@@ -37,6 +37,7 @@ public class AvailableTime {
         return endTime;
     }
 
+
     public int getDay(){ return day; }
 
     public void setStartTime(int startTime) {

@@ -33,22 +33,23 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         dayMenu.add(day);
         day = new JMenuItem("Friday");
         dayMenu.add(day);
-        day = new JMenuItem("Saturday");
-        dayMenu.add(day);
-        day = new JMenuItem("Sunday");
-        dayMenu.add(day);
         menuBar.add(dayMenu);
+
         //sets the frame and title of the frame's window
-        timeWindow = new JFrame("Available Time Form");
+
+        timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
         timeWindow.setSize(500, 500);
+
         //Created labels for the start time, end time, and day placeholders
         startTimeLabel = new JLabel("    Enter Start Time (Only the hour)");
         endTimeLabel = new JLabel("    Enter End Time (Only the hour)");
-        dayLabel = new JLabel("    Enter Day (0-6)");
+        dayLabel = new JLabel("    Enter Day (0-4)");
+
         //created temporary fields for a user to input their start time, end time, and day.
         startTextField = new JTextField();
         endTextField = new JTextField();
+
        // dayTextField = new JTextField();
         // Panel1 created for the labels and textfields and panel2 is created for the submit button.
         // Used GridLayout because the content looks better
@@ -69,7 +70,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         panel1.add(endTimeLabel);
         panel1.add(endTextField);
         panel1.add(dayLabel);
-       // panel1.add (dayTextField);
+      //  panel1.add (dayTextField);
         panel2.add(dayMenu);
         dayMenu.setVisible(true);
         panel1.add(panel2);
