@@ -68,7 +68,20 @@ public class AvailableTime {
 
     public int getMonth(){ return month; }
 
-    public int getDay(){ return day; }
+    public int getDay(){
+        if(day == 0)
+            return day;
+        else if(day == 1)
+            return day;
+        else if(day == 2)
+            return day;
+        else if(day == 3)
+            return day;
+        else if(day == 4)
+            return day;
+        else
+            return Integer.parseInt(null);
+    }
 
     public int getYear(){ return year; }
 
