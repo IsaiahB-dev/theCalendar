@@ -2,7 +2,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.MultiDocPrintService;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -124,20 +123,27 @@ public class DatabaseComm {
     }
 
     public static void main(String[] args) {
+        // Create the database object to stream data
         DatabaseComm stream = new DatabaseComm();
 
+        // This is how you get users
+        List<User> temp = stream.getUsers();    // Returns a list of users
+        User cam = temp.get(0);                 //  Accessing the first user in that list
 
-        List<User> temp = stream.getUsers();
-        User cam = temp.get(0);
+        // Here i am just printing out the users username but this is where you can branch off to get what you want
         System.out.println(cam.getUsername());
 
 
-
+        // This is calling the get calendars function to get a list of UserCalendars
         List<UserCalendar> calendars = stream.getCalendars();
 
+        // Iterating through the calendars
         for(int i = 0; i < calendars.size(); i++) {
-            UserCalendar test = calendars.get(i);
-            List<AvailableTime> times = test.getAvailableTimes();
+            UserCalendar test = calendars.get(i);                   // This is just going through all the calendars
+            List<AvailableTime> times = test.getAvailableTimes();   // This is pulling their list of available time
+
+            // This is where you could branch off to do most of what you need
+            // One example is compare ids to get the correct calendar from the proper user
 
             for (int j = 0; j < times.size(); j++) {
                 AvailableTime timeTest = times.get(j);
@@ -146,5 +152,4 @@ public class DatabaseComm {
             }
         }
     }
-
 }
