@@ -20,7 +20,7 @@ public class MainWindowGUI {
         RankingsGUI r = new RankingsGUI();
         CalendarGUI c = new CalendarGUI();
         frame.add(r.rankingIFrame, BorderLayout.EAST);
-        frame.add(c.calendarIFrame, BorderLayout.WEST);
+        frame.add(c.calendarIFrame, BorderLayout.CENTER);
         frame.setSize(1000, 800);
         frame.setVisible(true);
     }
