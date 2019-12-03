@@ -4,17 +4,22 @@ public class UserCalendar {
 
     // This is a list of the day class
     // Each day class is an array list of available times
-    private ArrayList<Day> availableTimes = new ArrayList<>();
+    private List<Day> availableTimes = new ArrayList<>();
     String user = "";
     public double matchPercent; // percent of primary user's
                                 // available time that matches
     private int id;
 
-    public UserCalendar(ArrayList<Day> availableTimeList, String userName) {
+    public UserCalendar(List<Day> availableTimeList, String userName) {
         this.availableTimes = availableTimeList;
         this.user = userName;
         this.matchPercent = 0.0;
     }
+
+    /**
+     * Constructor to use for default stuff
+     */
+    public UserCalendar() {}
 
     public void refresh(AvailableTime Refresh) {
 
@@ -50,11 +55,11 @@ public class UserCalendar {
         return user;
     }
 
-    public ArrayList<Day> getAvailableTimes() {
+    public List<Day> getAvailableTimes() {
         return availableTimes;
     }
 
-    public void setAvailableTimes(ArrayList<Day> availableTimes) {
+    public void setAvailableTimes(List<Day> availableTimes) {
         this.availableTimes = availableTimes;
     }
 
@@ -62,4 +67,7 @@ public class UserCalendar {
         this.availableTimes.get(day).addTime(time);
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }
