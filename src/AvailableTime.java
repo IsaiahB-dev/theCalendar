@@ -5,15 +5,15 @@ import java.util.GregorianCalendar;
 
 public class AvailableTime {
     // These are needed for reading from file
-    public int startTime;
-    public int endTime;
-    public int day;
+    private int startTime;
+    private int endTime;
+    private int day;
     private String medium;
 
-    // These are maybe needed to calculate for the parser but thats it 
-    public int days;
-    public int month;
-    public int year;
+    // These are maybe needed to calculate for the parser but thats it
+    private int days;
+    private int month;
+    private int year;
 
     
     /**
@@ -87,4 +87,20 @@ public class AvailableTime {
     public void setDay(int day) { this.day = day;}
 
     public void setYear(int year) { this.year = year; }
+
+
+    public String getMedium() {
+        if (medium.equals("am") || medium.equals("AM")) {
+            System.out.print("Before noon.");
+            return medium;
+        } else if (medium.equals("pm") || medium.equals("PM")) {
+            System.out.print("After noon.");
+            return medium;
+        }
+       else  return null;
+    }
+
+    public void setMedium(String medium) {
+        this.medium = medium;
+    }
 }
