@@ -26,6 +26,7 @@ public class UserCalendar {
     }
 
     public void addTime (AvailableTime AddTime) {
+        availableTimes.add(AddTime);
 
     }
 
