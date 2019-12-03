@@ -31,6 +31,11 @@ public class User {
         }
 
         /**
+         * Default constructor with nothing intitialized
+         */
+        public User() {}
+
+        /**
          * Returns the username for comparisons
          */
         public String getUsername()

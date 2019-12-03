@@ -2,7 +2,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.MultiDocPrintService;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -87,57 +86,29 @@ public class DatabaseComm {
                     // Creates a temporary calendar object to add to the list
                     UserCalendar tmpCalendar = new UserCalendar();
 
+                    // Sets the id for this calendar
                     tmpCalendar.setId(Integer.parseInt(calendarElement.getAttribute("id")));
 
+
                     // Gets a list of all the nodes labelled day
-                    NodeList DayList = calendarElement.getElementsByTagName("Day");
-
-                    // This is for the days
-                    for(int n = 0; n < DayList.getLength(); n++)
+                    NodeList TimeList = calendarElement.getElementsByTagName("AvailableTime");
+                    for(int j = 0; j < TimeList.getLength(); j++)
                     {
-                        Node dayNode = DayList.item(n);
-
-                        // Create a list for the days to be added
-                        List<Day> avTimes = new ArrayList<>();
-
-                        if(dayNode.getNodeType() == Node.ELEMENT_NODE)
+                        Node timeNode = TimeList.item(j);
+                        
+                        if(timeNode.getNodeType() == Node.ELEMENT_NODE)
                         {
-                            Element dayElement = (Element) dayNode;
+                            Element timeElement = (Element) timeNode;
+                            AvailableTime temp = new AvailableTime
+                                            (
+                                            Integer.parseInt(timeElement.getElementsByTagName("startTime").item(0).getTextContent()), 
+                                            Integer.parseInt(timeElement.getElementsByTagName("endTime").item(0).getTextContent()), 
+                                            Integer.parseInt(timeElement.getElementsByTagName("Day").item(0).getTextContent()) 
+                                            );
 
-                            // Creates a day object to have the times saved to
-                            Day times = new Day();
-
-                            // Gets a list of all the nodes labelled available time
-                            NodeList availableTimeList = dayElement.getElementsByTagName("AvailableTime");
-                            
-                            for(int j = 0; j < availableTimeList.getLength(); j++)
-                            {
-                                Node timeNode = availableTimeList.item(j);
-                                
-
-                                if (timeNode.getNodeType() == Node.ELEMENT_NODE)
-                                {
-                                    Element timeElement = (Element) timeNode;
-
-                                    // Creates an instance of an available time to append to the times list of a day
-                                    AvailableTime temp = new AvailableTime
-                                        (
-                                        Integer.parseInt(timeElement.getElementsByTagName("startTime").item(0).getTextContent()), 
-                                        Integer.parseInt(timeElement.getElementsByTagName("endTime").item(0).getTextContent()), 
-                                        n, 
-                                        timeElement.getElementsByTagName("meridies").item(0).getTextContent()
-                                        );
-
-                                    // Adds the time to the day list 
-                                    times.addTime(temp);
-                                }
-                            }
-                            // Adds the day list to the list of the week
-                            avTimes.add(times);
-
+                            tmpCalendar.addTime(temp);
                         }
-                        // Adds sets the list of days as the user calendars list
-                        tmpCalendar.setAvailableTimes(avTimes);
+                        
                     }
                     // Adds the user calendar to the list of user calendars to be returned
                     savedCalendars.add(tmpCalendar);
@@ -152,33 +123,33 @@ public class DatabaseComm {
     }
 
     public static void main(String[] args) {
+        // Create the database object to stream data
         DatabaseComm stream = new DatabaseComm();
 
+        // This is how you get users
+        List<User> temp = stream.getUsers();    // Returns a list of users
+        User cam = temp.get(0);                 //  Accessing the first user in that list
 
-        List<User> temp = stream.getUsers();
-        User cam = temp.get(0);
+        // Here i am just printing out the users username but this is where you can branch off to get what you want
         System.out.println(cam.getUsername());
 
 
-
+        // This is calling the get calendars function to get a list of UserCalendars
         List<UserCalendar> calendars = stream.getCalendars();
 
+        // Iterating through the calendars
         for(int i = 0; i < calendars.size(); i++) {
-            List<Day> times;
-            List<AvailableTime> freeTimes;
+            UserCalendar test = calendars.get(i);                   // This is just going through all the calendars
+            List<AvailableTime> times = test.getAvailableTimes();   // This is pulling their list of available time
 
-            UserCalendar test = calendars.get(i);
-            times = test.getAvailableTimes();
+            // This is where you could branch off to do most of what you need
+            // One example is compare ids to get the correct calendar from the proper user
 
             for (int j = 0; j < times.size(); j++) {
-                Day tmp = times.get(j);
-                freeTimes = tmp.getSchedule();
-                for (int n = 0; n < freeTimes.size(); n++) {
-                    AvailableTime open = freeTimes.get(n);
-                    System.out.println(open.getStartTime());
-                }
+                AvailableTime timeTest = times.get(j);
+                System.out.println(timeTest.getDay());
+                
             }
         }
     }
-
 }
