@@ -6,7 +6,7 @@ public class UserCalendar {
     // Each day class is an array list of available times
     private List<Day> availableTimes = new ArrayList<>();
     String user = "";
-    public double matchPercent; // percent of primary user's
+    private double matchPercent; // percent of primary user's
                                 // available time that matches
     private int id;
 
