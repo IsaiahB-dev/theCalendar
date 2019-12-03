@@ -25,7 +25,7 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         passwordText = new JPasswordField();
 
         passwordComfirmLabel = new JLabel();
-        passwordComfirmLabel.setText("Comfirm Password :");
+        passwordComfirmLabel.setText("Confirm Password :");
         cPasswordText = new JPasswordField();
     
         // Button for the createUser action
@@ -51,6 +51,7 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         
         // Adding the listener
         createUser.addActionListener(this);
+        cancel.addActionListener(this);
         // Settings for the frame
         add(panel, BorderLayout.CENTER);
         setTitle("Create User");
@@ -63,12 +64,18 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     // Cannot get cancel to work as of right now might need to change to individual initializations for action listeners
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == createUser) {
+        if (ae.getSource() == cancel) {
+            System.out.println("Cancelled");
+            setVisible(false);
+
+        }
+        else if(ae.getSource() == createUser) {
             System.out.println("User Created");
         }
-        else if (ae.getSource() == cancel) {
-            System.out.println("Cancelled");
-        }
 
+    }
+
+    public static void main(String[] args) {
+        new UserCreationGUI();
     }
 }
