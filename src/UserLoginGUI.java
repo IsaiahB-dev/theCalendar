@@ -7,8 +7,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     
     JPanel panel;
     JLabel userLabel, passwordLabel, message;
-    JTextField usernameText;
-    JPasswordField passwordText;
+    JTextField usernameText, passwordText;
     JButton login;
 
     
@@ -23,7 +22,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
 
         passwordLabel = new JLabel();
         passwordLabel.setText("Password :");
-        passwordText = new JPasswordField();
+        passwordText = new JTextField();
 
     
         // Button for the login action
@@ -58,6 +57,22 @@ public class UserLoginGUI extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println("Logged in");
+        User user = new User();
+
+        if (ae.getSource() == login)
+        {
+            boolean result = user.login(usernameText.getText(), passwordText.getText());
+
+            if (result == true) {
+                new MainWindowGUI();
+            }
+            else {
+                JOptionPane.showMessageDialog(panel, "Incorrect Credentials try again.\n Or create new user.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new UserLoginGUI();
     }
 }
