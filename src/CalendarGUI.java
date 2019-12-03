@@ -6,7 +6,6 @@ public class CalendarGUI {
     public BasicInternalFrameUI calendarBIFrame;
     public JTable calendar;
     public JPanel calendarPanel;
-
     CalendarGUI(){
         calendarIFrame = new JInternalFrame();
         calendarPanel = new JPanel();
@@ -14,7 +13,7 @@ public class CalendarGUI {
         calendarPanel.setVisible(true);
 
         calendar = new JTable(15, 6);
-        calendar.setBounds( 100,100,100,100);
+        calendar.setBounds( 100,200,100,100);
 
         calendarPanel.add(calendar);
 
