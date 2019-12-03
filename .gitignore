@@ -5,3 +5,16 @@
 .DS_Store
 
 
+out/production/theCalendar/AvailableTime.class
+.idea/misc.xml
+out/production/theCalendar/AvailableTimeFormGUI$1.class
+out/production/theCalendar/AvailableTimeFormGUI$2.class
+out/production/theCalendar/CalendarGUI.class
+out/production/theCalendar/DatabaseComm.class
+out/production/theCalendar/Day.class
+out/production/theCalendar/MainWindowGUI.class
+out/production/theCalendar/RankingsGUI.class
+out/production/theCalendar/User.class
+out/production/theCalendar/UserCalendar.class
+out/production/theCalendar/UserCreationGUI.class
+out/production/theCalendar/UserLoginGUI.class
