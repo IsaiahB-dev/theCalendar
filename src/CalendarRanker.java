@@ -57,7 +57,14 @@ public class CalendarRanker {
                     }
                 }
             }
-            calendars.get(i).setMatchPercent((double) (totalCompareeOverlap / totalUsersHours));
+
+            if (totalUsersHours == 0) {
+                calendars.get(i).setMatchPercent(0.0);
+            }
+            else {
+                calendars.get(i).setMatchPercent((double) (totalCompareeOverlap / totalUsersHours));
+            }
+            
         }
         
         // Sorts and reverses the list so its best to worst
