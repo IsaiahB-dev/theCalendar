@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Calendar;
+import java.util.List;
 
 public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
@@ -15,11 +16,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     private CalendarGUI cal;
     private User user;
 
-    /* *
-   Empty method at the moment
-     */
-    public void setCalendarTimes() {
-    }
 
     //Constructor for AvailableTimeFormGUI
     AvailableTimeFormGUI(User user) {
@@ -95,7 +91,29 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                             s.setStartTime(start);
                             s.setEndTime(end);
 
-                            // Logic here for adding the time to the Usercalendar
+                            // New database comm object to get and save data
+                            DatabaseComm stream = new DatabaseComm();
+                            List<UserCalendar> calendars = stream.getCalendars(); // Gets a list of the calendars
+
+                            // If the user has an id that is at max the size of the list he is already in the list 
+                            if (user.getId() <= calendars.size()) {
+                                UserCalendar cal = calendars.get(user.getId() - 1); // Pulls out the calendar to save the time to
+                                List<AvailableTime> times = cal.getAvailableTimes(); // Gets a list of that calendars times
+                                times.add(s); // Adds the time to the list 
+                                // Calls the function to save them to the file.
+                                stream.saveCalendars(calendars);
+                            }
+                            else { // If his id is larger then he is new and needs to be added 
+                                UserCalendar newCalendar = new UserCalendar(); // Creates a new calendar object for the new user
+                                newCalendar.setId(user.getId()); // Sets the id to the new users id
+                                // Get a list of available times from the new user calendar object
+                                List<AvailableTime> times = newCalendar.getAvailableTimes();
+                                times.add(s); // Add the new time to the new calendars list of times 
+                                calendars.add(newCalendar); // Add the new calendar to the list
+
+                                // Save the updated list
+                                stream.saveCalendars(calendars);
+                            }
                         } else {
                             JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
                         }
