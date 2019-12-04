@@ -48,7 +48,9 @@ public class RankingsGUI extends JPanel {
                     if (users.get(i).getUsername().equals(actionEvent.getActionCommand())) {
                         for (int j = 0; j < calendars.size(); j++) {
                             if (users.get(i).getId() == calendars.get(j).getId()) {
-                                List<AvailableTime> times = calendars.get(j).getAvailableTimes();
+                                List<AvailableTime> times = calendars.get(i).getAvailableTimes();
+                                List<AvailableTime> othertimes = calendars.get(i).getAvailableTimes();
+                                new CalendarGUI(times, othertimes);
                                 // Code here
                             }
                         }

@@ -14,7 +14,7 @@ public class CalendarGUI {
      * 2D matrix of JLabels that update with each added AvailableTime.
      * @param times
      */
-    CalendarGUI(List<AvailableTime> times) {
+    CalendarGUI(List<AvailableTime> times, List<AvailableTime> othertimes) {
         calendarPanel = new JPanel();
         calendarPanel.setLayout(new GridLayout(14, 6));
         calendarPanel.setVisible(true);
@@ -63,30 +63,15 @@ public class CalendarGUI {
          * JLabel that corresponds with the AvailableTime data.
          */
         for (AvailableTime a : times){
-            if (a.getDay() == 1){
-                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
-                    calendar[i][1].setOpaque(true);
-                    calendar[i][1].setBackground(Color.GREEN);
-                }
-            } else if (a.getDay() == 2){
-                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
-                    calendar[i][2].setOpaque(true);
-                    calendar[i][2].setBackground(Color.GREEN);
-                }
-            } else if (a.getDay() == 3) {
-                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
-                    calendar[i][3].setOpaque(true);
-                    calendar[i][3].setBackground(Color.GREEN);
-                }
-            } else if (a.getDay() == 4) {
-                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
-                    calendar[i][4].setOpaque(true);
-                    calendar[i][4].setBackground(Color.GREEN);
-                }
-            } else if (a.getDay() == 5){
-                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
-                    calendar[i][5].setOpaque(true);
-                    calendar[i][5].setBackground(Color.GREEN);
+            int d = a.getDay();
+            for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
+                calendar[i][d].setOpaque(true);
+                calendar[i][d].setBackground(Color.GREEN);
+                for (AvailableTime b : othertimes) {
+                    int db = b.getDay();
+                    for (int j = (b.getStartTime() - 8); j <= (b.getEndTime() - 8); j++) {
+                        if (i == j && d == db) calendar[i][d].setBackground(Color.ORANGE);
+                    }
                 }
             }
         }

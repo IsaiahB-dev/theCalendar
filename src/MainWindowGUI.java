@@ -10,6 +10,7 @@ public class MainWindowGUI implements ActionListener {
     JButton logout;
     User user;
     List<AvailableTime> times;
+    List<AvailableTime> othertimes;
 
     /**
      * The MainWindowGUI consists of three JPanes/JPanels: RankingsGUI, CalendarGUI, and the button pane at the top.
@@ -28,6 +29,7 @@ public class MainWindowGUI implements ActionListener {
         if (user.getId() <= calendars.size()) {
             UserCalendar cal = calendars.get(user.getId() - 1); // Pulls out the calendar to save the time to
             times = cal.getAvailableTimes(); // Gets a list of that calendars times
+            othertimes = cal.getblankavailableTimes();
         }
 
         frame = new JFrame("Calendar Scheduler");
@@ -52,7 +54,7 @@ public class MainWindowGUI implements ActionListener {
         logout.addActionListener(this);
 
         RankingsGUI r = new RankingsGUI(user);
-        CalendarGUI c = new CalendarGUI(times);
+        CalendarGUI c = new CalendarGUI(times, othertimes);
         frame.add(r.rankingP, BorderLayout.EAST);
         frame.add(c.calendarPanel, BorderLayout.CENTER);
         frame.setSize(1000, 800);
