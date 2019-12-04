@@ -17,11 +17,11 @@ public class CalendarGUI {
 
         CalendarTime r1 = new CalendarTime(8, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r2 = new CalendarTime(9, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r3 = new CalendarTime(10, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r4 = new CalendarTime(11, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r5 = new CalendarTime(12, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r6 = new CalendarTime(1, CalendarTime.Times.N, CalendarTime.Times.B, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r7 = new CalendarTime(2, CalendarTime.Times.N, CalendarTime.Times.B, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r3 = new CalendarTime(10, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r4 = new CalendarTime(11, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r5 = new CalendarTime(12, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r6 = new CalendarTime(1, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r7 = new CalendarTime(2, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r8 = new CalendarTime(3, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r9 = new CalendarTime(4, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r10 = new CalendarTime(5, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
