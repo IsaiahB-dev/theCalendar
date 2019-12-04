@@ -44,13 +44,11 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         startTextField.setHorizontalAlignment(JTextField.CENTER);
         endTextField.setHorizontalAlignment(JTextField.CENTER);
         dayTextField.setHorizontalAlignment(JTextField.CENTER);
+
         // Panel1 created for the labels and textfields and panel2 is created for the submit button.
         // Used GridLayout because the content looks better
-        //Still trying to figure out how to center the the submit button on panel2
-
         panel1 = new JPanel(new GridLayout(5, 5, 2, 2));
         panel2 = new JPanel(new GridLayout(1, 1, 1, 3));
-        //panel.setBorder(BorderFactory.createEmptyBorder(50, 10, 150, 10));
         add(panel1, BorderLayout.CENTER);
         add(panel2, BorderLayout.CENTER);
         //created a button for submission, along with bounds
