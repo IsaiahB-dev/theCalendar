@@ -138,6 +138,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                }
             }
             catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank, try again.");
                 System.out.print("Exception caught here");
             }
             JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated only for fields input correctly.");
