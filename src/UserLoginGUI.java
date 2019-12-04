@@ -62,6 +62,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
         setTitle("Login");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
  
     }

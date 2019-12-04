@@ -65,6 +65,7 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         setTitle("Create User");
         setSize(500, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

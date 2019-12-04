@@ -7,6 +7,7 @@ public class MainWindowGUI implements ActionListener {
     JFrame frame;
     JPanel buttonsP;
     JButton time;
+    JButton logout;
     User user;
     List<AvailableTime> times;
 
@@ -35,14 +36,20 @@ public class MainWindowGUI implements ActionListener {
         buttonsP = new JPanel();
 
         time = new JButton("Add Time");
+        logout = new JButton("Log Out");
 
         time.setVisible(true);
         time.setBounds(50, 30, 10, 10);
         buttonsP.add(time);
 
+        logout.setVisible(true);
+        logout.setBounds(50, 30, 10, 10);
+        buttonsP.add(logout);
+
         frame.add(buttonsP, BorderLayout.PAGE_START);
 
         time.addActionListener(this);
+        logout.addActionListener(this);
 
         RankingsGUI r = new RankingsGUI(user);
         CalendarGUI c = new CalendarGUI(times);
@@ -58,10 +65,19 @@ public class MainWindowGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == time) {
+            // Moved these actions to the AvailableTimeFormGUI so that we can see the calendar while adding times
             //frame.setVisible(false);
             //frame.dispose();
+
             // If the add time function is pressed the current user is passed in so the time is given to the correct user
             new AvailableTimeFormGUI(this.user, this.frame);
+        }
+        if (ae.getSource() == logout) {
+            // Start over fresh with a new login
+            frame.setVisible(false);
+            frame.dispose();
+            System.out.println("Tried to log out");
+            new UserLoginGUI(new User());
         }
     }
 
