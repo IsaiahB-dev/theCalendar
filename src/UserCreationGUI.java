@@ -62,7 +62,6 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     }
 
     // This is where we will add the calls to store the user in the database and log him in i believe
-    // Cannot get cancel to work as of right now might need to change to individual initializations for action listeners
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == cancel) {
