@@ -33,7 +33,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
 
 
     /**
-     * Function to append a tim to the list of available times
+     * Function to append a time to the list of available times
      * @param AddTime Method that will add time to available times
      */
     public void addTime (AvailableTime AddTime) {

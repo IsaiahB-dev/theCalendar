@@ -30,11 +30,11 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
-        timeWindow.setSize(500, 500);
+        timeWindow.setSize(400, 200);
         //Created labels for the start time, end time, and day placeholders
-        startTimeLabel = new JLabel("    Enter Start Time between 8 - 20 (Only the hour)");
-        endTimeLabel = new JLabel("    Enter End Time between 8 - 20 (Only the hour)");
-        dayLabel = new JLabel("    Enter Day (1-5)");
+        startTimeLabel = new JLabel("Enter Start Time (8-20)");
+        endTimeLabel = new JLabel("Enter End Time (8-20)");
+        dayLabel = new JLabel("Enter Day (1-5)");
 
         //created temporary fields for a user to input their start time, end time, and day.
         startTextField = new JTextField();
@@ -44,13 +44,13 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         startTextField.setHorizontalAlignment(JTextField.CENTER);
         endTextField.setHorizontalAlignment(JTextField.CENTER);
         dayTextField.setHorizontalAlignment(JTextField.CENTER);
+
         // Panel1 created for the labels and textfields and panel2 is created for the submit button.
         // Used GridLayout because the content looks better
-        //Still trying to figure out how to center the the submit button on panel2
-
-        panel1 = new JPanel(new GridLayout(5, 5, 2, 2));
+        panel1 = new JPanel(new GridLayout(5, 5, 10, 10));
         panel2 = new JPanel(new GridLayout(1, 1, 1, 3));
-        //panel.setBorder(BorderFactory.createEmptyBorder(50, 10, 150, 10));
+        panel1.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); 
+
         add(panel1, BorderLayout.CENTER);
         add(panel2, BorderLayout.CENTER);
         //created a button for submission, along with bounds
@@ -64,7 +64,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         panel1.add(dayLabel);
         panel1.add(dayTextField);
         panel1.add(panel2);
-        panel2.add(bSubmit);
+        panel1.add(bSubmit);
 
         //added an actionListener for the button to have actions.
         bSubmit.addActionListener(this);
