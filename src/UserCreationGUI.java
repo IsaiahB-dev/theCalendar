@@ -12,6 +12,7 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     JTextField usernameText;
     JPasswordField passwordText, cPasswordText;
     JButton createUser, cancel;
+    User cUser;
 
     UserCreationGUI() {
         // This is the label for the username and text field for the user input
@@ -67,22 +68,30 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         if (ae.getSource() == cancel) {
             setVisible(false); // Can no longer see jframe
             dispose(); // Destroy jframe object
-            new UserLoginGUI();
+            // If cancelled then an empty user is passed back into the login form
+            new UserLoginGUI(cUser);
 
         }
         else if(ae.getSource() == createUser) {
             if (passwordText.getText().equals(cPasswordText.getText())) {
+                // Creates stream to save new user to database
                 DatabaseComm stream = new DatabaseComm();
+                // Creates a list to add the new user to
                 List<User> users = stream.getUsers();
 
-                // The new user to be used for this instance I dont know if this will be accessible after this
+                // New user to save data to 
                 User user = new User();
                 user.createUser(usernameText.getText(), passwordText.getText());
-                users.add(user);
-                stream.saveUsers(users);
+                this.cUser = user;
+
                 setVisible(false);
                 dispose();
-                new MainWindowGUI();
+                // Adds the user to the list 
+                users.add(cUser);
+                // Calls function to save to file
+                stream.saveUsers(users);
+                // Calls new main window with the new user 
+                new MainWindowGUI(cUser);
             }
             else {
                 JOptionPane.showMessageDialog(panel, "Passwords do not match");
@@ -90,9 +99,5 @@ public class UserCreationGUI extends JFrame implements ActionListener{
 
         }
 
-    }
-
-    public static void main(String[] args) {
-        new UserCreationGUI();
     }
 }
