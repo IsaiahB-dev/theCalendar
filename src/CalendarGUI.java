@@ -7,23 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CalendarGUI {
-    public JInternalFrame calendarIFrame;
-    public BasicInternalFrameUI calendarBIFrame;
     public JTable calendar;
     public JPanel calendarPanel;
+    public JScrollPane scrollPane;
     CalendarGUI(){
-        calendarIFrame = new JInternalFrame();
         calendarPanel = new JPanel();
-        calendarPanel.setLayout(new BoxLayout(calendarPanel, BoxLayout.Y_AXIS));
+        calendarPanel.setLayout(new BorderLayout());
         calendarPanel.setVisible(true);
 
         CalendarTime r1 = new CalendarTime(8, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r2 = new CalendarTime(9, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r3 = new CalendarTime(10, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r4 = new CalendarTime(11, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r5 = new CalendarTime(12, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r6 = new CalendarTime(1, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
-        CalendarTime r7 = new CalendarTime(2, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r3 = new CalendarTime(10, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r4 = new CalendarTime(11, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r5 = new CalendarTime(12, CalendarTime.Times.Y, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r6 = new CalendarTime(1, CalendarTime.Times.N, CalendarTime.Times.B, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
+        CalendarTime r7 = new CalendarTime(2, CalendarTime.Times.N, CalendarTime.Times.B, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r8 = new CalendarTime(3, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r9 = new CalendarTime(4, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r10 = new CalendarTime(5, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
@@ -47,19 +45,18 @@ public class CalendarGUI {
         CalTimes.add(r13);
 
         CalendarTableModel model = new CalendarTableModel(CalTimes);
-        calendar = new  JTable(model);
+        calendar = new JTable(model);
         calendar.setDefaultRenderer(CalendarTime.Times.class, new CalendarRenderer());
-        calendarPanel.add(calendar);
-        calendarIFrame.add(calendarPanel);
-        calendarBIFrame = (BasicInternalFrameUI) calendarIFrame.getUI();
-        calendarBIFrame.setNorthPane(null);
-        calendarIFrame.setVisible(true);
+        calendar.setRowHeight(35);
+        scrollPane = new JScrollPane();
+        scrollPane.setViewportView(calendar);
+        calendarPanel.add(scrollPane, BorderLayout.CENTER);
     }
 }
 
 class CalendarTime{
     public enum Times {
-        Y, N
+        Y, N, B
     }
     protected int clockTime;
     protected Times monday;
@@ -192,6 +189,8 @@ class CalendarRenderer extends JLabel implements TableCellRenderer{
             super.setBackground(Color.GREEN);
         } else if (times == CalendarTime.Times.N){
             super.setBackground(Color.WHITE);
+        } else if (times == CalendarTime.Times.B){
+            super.setBackground(Color.BLUE);
         }
         return this;
     }
