@@ -7,7 +7,8 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     
     JPanel panel;
     JLabel userLabel, passwordLabel;
-    JTextField usernameText, passwordText;
+    JTextField usernameText;
+    JPasswordField passwordText;
     JButton login, newUser;
     User user;
 
@@ -24,7 +25,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
 
         passwordLabel = new JLabel();
         passwordLabel.setText("Password :");
-        passwordText = new JTextField();
+        passwordText = new JPasswordField();
 
     
         // Button for the login action
