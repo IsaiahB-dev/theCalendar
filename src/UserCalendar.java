@@ -107,4 +107,12 @@ public class UserCalendar {
     public void setId(int id) {
         this.id = id;
     }
+
+    /**
+     * get the user's id
+     * @return id of user (an int) that corresponds with their place in the database
+     */
+    public int getId() {
+        return this.id;
+    }
 }
