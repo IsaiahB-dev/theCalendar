@@ -9,6 +9,7 @@ import javax.swing.JToggleButton;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.xml.crypto.Data;
 
+
 /**
  * GUI to display the users of a ranked list based on match percentage
  */
@@ -19,7 +20,7 @@ public class RankingsGUI extends JPanel {
      * Creates and populates the rankings GUI with the list of users.
      * @param user: The current logged in user.
      */
-    RankingsGUI(User user) {
+    RankingsGUI(User user, MainWindowGUI mainGUI) {
         // Create panel to display the ranking of people with best-matched schedules
         rankingP = new JPanel();
 
@@ -48,10 +49,10 @@ public class RankingsGUI extends JPanel {
                     if (users.get(i).getUsername().equals(actionEvent.getActionCommand())) {
                         for (int j = 0; j < calendars.size(); j++) {
                             if (users.get(i).getId() == calendars.get(j).getId()) {
+
                                 List<AvailableTime> times = calendars.get(i).getAvailableTimes();
                                 List<AvailableTime> othertimes = calendars.get(i).getAvailableTimes();
-                                new CalendarGUI(times, othertimes);
-                                // Code here
+                                mainGUI.updateCalendarGUI(new CalendarGUI(times, othertimes));
                             }
                         }
                     }

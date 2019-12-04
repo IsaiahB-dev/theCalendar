@@ -21,9 +21,9 @@ public class UserCalendar implements Comparable<UserCalendar>{
      */
     public UserCalendar(List<AvailableTime> availableTimeList, String userName) {
         this.availableTimes = availableTimeList;
+        this.blankavailableTimes.add(new AvailableTime(19,19,5));
         this.user = userName;
         this.matchPercent = 0.0;
-        this.blankavailableTimes.add(new AvailableTime(0,0,0));
     }
 
     /**

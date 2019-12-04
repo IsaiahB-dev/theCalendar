@@ -123,9 +123,9 @@ public class User {
             {
                 User currentP = people.get(i);
 
-                if (currentP.getUsername().equals(name))
+                if (currentP.getUsername().equals(name) && currentP.getPassword().equals(pass))
                 {
-                    // If the validation is succesful then it populates the user with the correct info that already exists
+                    // If the validation is successful then it populates the user with the correct info that already exists
                     this.userName = currentP.getUsername();
                     this.password = currentP.getPassword();
                     this.id = currentP.getId();

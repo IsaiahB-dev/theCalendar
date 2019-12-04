@@ -11,6 +11,8 @@ public class MainWindowGUI implements ActionListener {
     User user;
     List<AvailableTime> times;
     List<AvailableTime> othertimes;
+    RankingsGUI r;
+    CalendarGUI c;
 
     /**
      * The MainWindowGUI consists of three JPanes/JPanels: RankingsGUI, CalendarGUI, and the button pane at the top.
@@ -53,8 +55,8 @@ public class MainWindowGUI implements ActionListener {
         time.addActionListener(this);
         logout.addActionListener(this);
 
-        RankingsGUI r = new RankingsGUI(user);
-        CalendarGUI c = new CalendarGUI(times, othertimes);
+        r = new RankingsGUI(user, this);
+        c = new CalendarGUI(times, othertimes);
         frame.add(r.rankingP, BorderLayout.EAST);
         frame.add(c.calendarPanel, BorderLayout.CENTER);
         frame.setSize(1000, 800);
@@ -95,5 +97,10 @@ public class MainWindowGUI implements ActionListener {
         // Passes it to the login gui to be populated.
         new UserLoginGUI(mainUser);
 
+    }
+
+    public void updateCalendarGUI(CalendarGUI c) {
+        this.c = c;
+        c.calendarPanel.updateUI();
     }
 }

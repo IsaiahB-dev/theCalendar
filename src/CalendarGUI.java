@@ -70,7 +70,10 @@ public class CalendarGUI {
                 for (AvailableTime b : othertimes) {
                     int db = b.getDay();
                     for (int j = (b.getStartTime() - 8); j <= (b.getEndTime() - 8); j++) {
-                        if (i == j && d == db) calendar[i][d].setBackground(Color.ORANGE);
+                        if (i == j && d == db) {
+                            System.out.println("Tried to change color");
+                            calendar[i][d].setBackground(Color.ORANGE);
+                        }
                     }
                 }
             }
