@@ -10,6 +10,8 @@ public class CalendarGUI {
     public JTable calendar;
     public JPanel calendarPanel;
     public JScrollPane scrollPane;
+    public List<CalendarTime> CalTimes;
+
     CalendarGUI(){
         calendarPanel = new JPanel();
         calendarPanel.setLayout(new BorderLayout());
@@ -29,7 +31,7 @@ public class CalendarGUI {
         CalendarTime r12 = new CalendarTime(7, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
         CalendarTime r13 = new CalendarTime(8, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N, CalendarTime.Times.N);
 
-        List<CalendarTime> CalTimes = new ArrayList<>();
+        CalTimes = new ArrayList<>();
         CalTimes.add(r1);
         CalTimes.add(r2);
         CalTimes.add(r3);

@@ -1,19 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Calendar;
 
 public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
     //Variables
    private JFrame timeWindow;
-   private JMenuBar menuBar = new JMenuBar();
-   private JPopupMenu dayMenu = new JPopupMenu();
-   private JMenuItem day = new JMenuItem();
 
    private JLabel startTimeLabel,endTimeLabel , dayLabel;
    private JButton bSubmit;
    private JPanel panel1, panel2;
    private JTextField startTextField,endTextField, dayTextField;
+   private CalendarGUI cal;
     /* *
    Empty method at the moment
      */
@@ -22,25 +21,10 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     //Constructor for AvailableTimeFormGUI
     AvailableTimeFormGUI() {
 
-      /*  day = new JMenuItem("Monday");
-        dayMenu.add(day);
-        day = new JMenuItem("Tuesday");
-        dayMenu.add(day);
-        day = new JMenuItem("Wednesday");
-        dayMenu.add(day);
-        day = new JMenuItem("Thursday");
-        dayMenu.add(day);
-        day = new JMenuItem("Friday");
-        dayMenu.add(day);
-        menuBar.add(dayMenu);
-        */
-        //sets the frame and title of the frame's window
 
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
         timeWindow.setSize(500, 500);
-        //Set background color for timeWindow
-        timeWindow.setBackground(Color.cyan);
         //Created labels for the start time, end time, and day placeholders
         startTimeLabel = new JLabel("    Enter Start Time between 8 - 20 (Only the hour)");
         endTimeLabel = new JLabel("    Enter End Time between 8 - 20 (Only the hour)");
@@ -66,9 +50,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         //created a button for submission, along with bounds
         bSubmit = new JButton("Submit Here");
         bSubmit.setBounds(50, 150, 90, 50);
-        //Set background color for panel1 & panel2
-        panel1.setBackground(Color.YELLOW);
-        panel2.setBackground(Color.YELLOW);
         //added the contents to the panel1
         panel1.add(startTimeLabel);
         panel1.add(startTextField);
@@ -76,28 +57,16 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         panel1.add(endTextField);
         panel1.add(dayLabel);
         panel1.add (dayTextField);
-     //   panel2.add(dayMenu);
-       // dayMenu.setVisible(true);
         panel1.add(panel2);
-        //panel.add(bSubmit);
         panel2.add(bSubmit);
+
         //added an actionListener for the button to have actions.
         bSubmit.addActionListener(this);
-       /* day.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-            }
-        });
-       timeWindow.addMouseListener(new MouseAdapter(){
-            public void mouseReleased(MouseEvent Me){
-                if(Me.isPopupTrigger()){
-                    dayMenu.show(Me.getComponent(), Me.getX(), Me.getY());
-                }
-            }
-        });*/
+
 
         //added the panel to the frame.
         timeWindow.add(panel1);
-
+        timeWindow.setLocationRelativeTo(null);
         timeWindow.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -122,29 +91,63 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                //try,catch block that catches error when user leaves a JtextField blank
                 try {
                     int start = Integer.parseInt(startTextField.getText());
+                    int day = Integer.parseInt(dayTextField.getText());
+                    int end = Integer.parseInt(endTextField.getText());
+
                     if(start > 7 && start < 21) {
-                        s.setStartTime(start);
+                        if(end < 21) {
+                            if(day < 6 && day > 0) {
+                                s.setDay(day);
+                                s.setStartTime(start);
+                                s.setEndTime(end);
+                            }
+                            else {
+                                JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
+                            }
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your end time, try again.");
+                        }
                     }
                    else {
                         JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
                     }
-                    int end = Integer.parseInt(endTextField.getText());
-                   if(end < 21) {
-                       s.setEndTime(end);
-                   }
-                   else {
-                       JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your end time, try again.");
 
-                   }
-                   int day = Integer.parseInt(dayTextField.getText());
-                   if(day < 6 && day > 0) {
-                       s.setDay(day);
-                   }
-                   else {
-                       JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
+                   int[] time = new int[13];
+                   for (int i = 0; i < time.length; i++){
+                       if (i == (start - 8)){
+                           while (i <= (end - 8)) {
+                               time[i] = 1;
+                               i++;
+                           }
+                           break;
+                       }
                    }
 
-                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated only for fields input correctly.");
+                   for(CalendarTime c : cal.CalTimes){
+                       if (day == 1){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setMonday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 2){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setTuesday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 3){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setWednesday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 4){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setThursday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 5){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setFriday(CalendarTime.Times.Y);
+                           }
+                       }
+                   }
+                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
                 }
 
                 catch (NumberFormatException ex) {
