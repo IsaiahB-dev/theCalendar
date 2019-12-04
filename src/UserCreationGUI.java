@@ -72,15 +72,22 @@ public class UserCreationGUI extends JFrame implements ActionListener{
 
         }
         else if(ae.getSource() == createUser) {
-            DatabaseComm stream = new DatabaseComm();
-            List<User> users = stream.getUsers();
+            if (passwordText.getText().equals(cPasswordText.getText())) {
+                DatabaseComm stream = new DatabaseComm();
+                List<User> users = stream.getUsers();
 
-            // The new user to be used for this instance I dont know if this will be accessible after this
-            User user = new User(); 
-            user.createUser(usernameText.getText(), passwordText.getText());
-            setVisible(false);
-            dispose();
-            new MainWindowGUI();
+                // The new user to be used for this instance I dont know if this will be accessible after this
+                User user = new User();
+                user.createUser(usernameText.getText(), passwordText.getText());
+                users.add(user);
+                stream.saveUsers(users);
+                setVisible(false);
+                dispose();
+                new MainWindowGUI();
+            }
+            else {
+                JOptionPane.showMessageDialog(panel, "Passwords do not match");
+            }
 
         }
 
