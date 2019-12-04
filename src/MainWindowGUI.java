@@ -1,10 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class MainWindowGUI implements ActionListener {
     JFrame frame;
@@ -12,6 +9,13 @@ public class MainWindowGUI implements ActionListener {
     JButton time;
     User user;
     List<AvailableTime> times;
+
+    /**
+     * The MainWindowGUI consists of three JPanes/JPanels: RankingsGUI, CalendarGUI, and the button pane at the top.
+     * This class takes a User object parameter because the current user's data is the most relevant to the display.
+     * This GUI is the "central hub" for the program itself.
+     * @param user
+     */
     MainWindowGUI(User user) {
         this.user = user;
 

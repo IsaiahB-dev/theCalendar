@@ -9,9 +9,14 @@ public class CalendarRanker {
     private UserCalendar userCalendar; // need to access the current user's calendar
 
     // list of all the calendars
-    private List<UserCalendar> calendars = new ArrayList<>(); 
+    private List<UserCalendar> calendars = new ArrayList<>();
 
-
+    /**
+     * The CalendarRanker is a back-end class that servers as the meat of the RankingsGUI. This class calculates the
+     * rankings of user calendars and then instructs the RankingsGUI on the proper order to display them in. This class
+     * requires the User object parameter because the listing is customized to the current user.
+     * @param user
+     */
     public CalendarRanker(User user) {
         // Sets the user equal to the passed arguments
         this.user = user;

@@ -16,6 +16,12 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     private JTextField startTextField, endTextField, dayTextField;
     private User user;
 
+    /**
+     * The AvailableTimeFormGUI is a pop-up menu that is triggered by clicking the "Add Time" button in the MainWindowGUI.
+     * This class takes the current User object and created a new AvailableTime object to be displayed on the CalendarGUI and
+     * stored in the XMl database.
+     * @param user
+     */
     //Constructor for AvailableTimeFormGUI
     AvailableTimeFormGUI(User user) {
         this.user = user;

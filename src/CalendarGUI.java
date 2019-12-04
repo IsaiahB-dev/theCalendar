@@ -8,7 +8,10 @@ public class CalendarGUI {
     public JLabel[] headers;
 
     /**
-     * The CalendarGUI
+     * The CalendarGUI is a simple multi-pane JFrame that displays a graphic depicting a user's listed AvailableTime
+     * objects from the XML database. The parameter for this class is an ArrayList of AvailableTime objects from the
+     * current user, and these objects are iterated through and siphoned for data. The GUI is nothing more than a
+     * 2D matrix of JLabels that update with each added AvailableTime.
      * @param times
      */
     CalendarGUI(List<AvailableTime> times) {
@@ -55,6 +58,10 @@ public class CalendarGUI {
             calendar[i][0].setVerticalAlignment(JLabel.CENTER);
         }
 
+        /**
+         * This chunk of code iterates through the given ArrayList of AvailableTime objects and then colors in a
+         * JLabel that corresponds with the AvailableTime data.
+         */
         for (AvailableTime a : times){
             if (a.getDay() == 1){
                 for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
