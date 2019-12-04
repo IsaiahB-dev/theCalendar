@@ -88,8 +88,20 @@ public class UserCreationGUI extends JFrame implements ActionListener{
                 dispose();
                 // Adds the user to the list 
                 users.add(cUser);
-                // Calls function to save to file
+                // Calls function to save updated users to file
                 stream.saveUsers(users);
+
+
+                // Gets a list of the calendars
+                List<UserCalendar> calendars = stream.getCalendars();
+
+                // Time to update user calendar file
+                UserCalendar newCalendar = new UserCalendar(); // Creates a new calendar object for the new user
+                newCalendar.setId(user.getId()); // Sets the id to the new users id
+
+                calendars.add(newCalendar); // Add the new calendar to the list
+                // Save the updated list
+                stream.saveCalendars(calendars);
                 // Calls new main window with the new user 
                 new MainWindowGUI(cUser);
             }
