@@ -177,7 +177,73 @@ public class DatabaseComm {
             
             transformer.transform(source, result);
 
-            System.out.println("File saved!");
+            
+        } catch (ParserConfigurationException pce) {
+            		pce.printStackTrace();
+        } catch (TransformerException tfe) {
+            tfe.printStackTrace();
+        }
+
+    }
+
+    public void saveCalendars(List<UserCalendar> calendars) {
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
+            // root elements
+		    Document doc = docBuilder.newDocument();
+		    Element rootElement = doc.createElement("calendars");
+            doc.appendChild(rootElement);
+            
+            // Start loop here //
+            for (int i = 0; i < calendars.size(); i++) {
+                // Creates the element for the calendar node
+                Element userCalendarElement = doc.createElement("UserCalendar");
+
+                // Appends the user calendar node to the root node
+                rootElement.appendChild(userCalendarElement);
+
+                // Sets the id for the current calendar
+                userCalendarElement.setAttribute("id", Integer.toString(calendars.get(i).getId()));
+
+                // Iterates through the available times in this calendar to save them.
+                for (int j = 0; j < calendars.get(i).getAvailableTimes().size(); j++) {
+                    // Creates the element for the time node
+                    Element avalTimeNode = doc.createElement("AvailableTime");
+                    // Appends the time node to the calendar.
+                    userCalendarElement.appendChild(avalTimeNode);
+
+                    // Day elements
+		            Element dayElement = doc.createElement("Day");
+		            dayElement.appendChild(doc.createTextNode(Integer.toString(calendars.get(i).getAvailableTimes().get(j).getDay())));
+                    avalTimeNode.appendChild(dayElement);
+
+                    // Start time elements
+		            Element startTimElement = doc.createElement("startTime");
+		            startTimElement.appendChild(doc.createTextNode(Integer.toString(calendars.get(i).getAvailableTimes().get(j).getStartTime())));
+                    avalTimeNode.appendChild(startTimElement);
+
+                    // End time  elements
+		            Element endTimElement = doc.createElement("endTime");
+		            endTimElement.appendChild(doc.createTextNode(Integer.toString(calendars.get(i).getAvailableTimes().get(j).getEndTime())));
+                    avalTimeNode.appendChild(endTimElement);
+                }
+            }
+
+            // write the content into xml file
+		    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+		    DOMSource source = new DOMSource(doc);
+		    StreamResult result = new StreamResult(new File("sampleCalendar.xml"));
+		    // Output to console for testing
+            // StreamResult result = new StreamResult(System.out);
+            
+            transformer.transform(source, result);
+
             
         } catch (ParserConfigurationException pce) {
             		pce.printStackTrace();
@@ -212,9 +278,15 @@ public class DatabaseComm {
     // 
     // 
     // 
-    // 
+    //     // Sample code for adding an available time and updating the saved file
     //     // This is calling the get calendars function to get a list of UserCalendars
-    //     List<UserCalendar> calendars = stream.getCalendars();
+    //      List<UserCalendar> calendars = stream.getCalendars(); // Gets a list of the calendars
+    //      UserCalendar cal = calendars.get(1); // Pulls out the calendar to save the time to
+    //      List<AvailableTime> times = cal.getAvailableTimes(); // Gets a list of that calendars times
+    //      AvailableTime time = new AvailableTime(6, 8, 3); // Creating new time object
+    //      times.add(time); // Adds the time to the list 
+    //      // Calls the function to save them to the file.
+    //      stream.saveCalendars(calendars);
     // 
     //     // Iterating through the calendars
     //     for(int i = 0; i < calendars.size(); i++) {
@@ -230,5 +302,5 @@ public class DatabaseComm {
     //             
     //         }
     //     }
-    // }
+    //  }
 }
