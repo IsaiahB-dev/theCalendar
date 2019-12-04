@@ -11,7 +11,7 @@ public class MainWindowGUI implements ActionListener {
     JPanel buttonsP;
     JButton time;
     User user;
-
+    List<AvailableTime> times;
     MainWindowGUI(User user) {
         this.user = user;
 
@@ -22,7 +22,7 @@ public class MainWindowGUI implements ActionListener {
         // If the user has an id that is at max the size of the list he is already in the list
         if (user.getId() <= calendars.size()) {
             UserCalendar cal = calendars.get(user.getId() - 1); // Pulls out the calendar to save the time to
-            java.util.List<AvailableTime> times = cal.getAvailableTimes(); // Gets a list of that calendars times
+            times = cal.getAvailableTimes(); // Gets a list of that calendars times
         }
 
         frame = new JFrame("Calendar Scheduler");
@@ -41,7 +41,7 @@ public class MainWindowGUI implements ActionListener {
         time.addActionListener(this);
 
         RankingsGUI r = new RankingsGUI(user);
-        CalendarGUI c = new CalendarGUI();
+        CalendarGUI c = new CalendarGUI(times);
         frame.add(r.rankingP, BorderLayout.EAST);
         frame.add(c.calendarPanel, BorderLayout.CENTER);
         frame.setSize(1000, 800);

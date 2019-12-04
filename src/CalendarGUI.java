@@ -1,13 +1,13 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-
+import java.util.List;
 
 public class CalendarGUI {
     public JPanel calendarPanel;
     public JLabel[][] calendar;
     public JLabel[] headers;
-    CalendarGUI() {
+    CalendarGUI(List<AvailableTime> times) {
         calendarPanel = new JPanel();
         calendarPanel.setLayout(new GridLayout(14, 6));
         calendarPanel.setVisible(true);
@@ -36,10 +36,48 @@ public class CalendarGUI {
                 calendarPanel.add(calendar[i][j]);
             }
         }
-        for (int i = 0; i < 6; i++){
-            calendar[i][0].setText((i + 7) + " AM");
+        for (int i = 0; i < 4; i++){
+            calendar[i][0].setText((i + 8) + " AM");
             calendar[i][0].setHorizontalAlignment(JLabel.CENTER);
             calendar[i][0].setVerticalAlignment(JLabel.CENTER);
+        }
+        calendar[4][0].setText("12 PM");
+        calendar[4][0].setHorizontalAlignment(JLabel.CENTER);
+        calendar[4][0].setVerticalAlignment(JLabel.CENTER);
+
+        for(int i = 5; i < 13; i++){
+            calendar[i][0].setText((i - 4) + " PM");
+            calendar[i][0].setHorizontalAlignment(JLabel.CENTER);
+            calendar[i][0].setVerticalAlignment(JLabel.CENTER);
+        }
+
+        for (AvailableTime a : times){
+            if (a.getDay() == 1){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][1].setOpaque(true);
+                    calendar[i][1].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 2){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][2].setOpaque(true);
+                    calendar[i][2].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 3) {
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
+                    calendar[i][3].setOpaque(true);
+                    calendar[i][3].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 4) {
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
+                    calendar[i][4].setOpaque(true);
+                    calendar[i][4].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 5){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][5].setOpaque(true);
+                    calendar[i][5].setBackground(Color.GREEN);
+                }
+            }
         }
     }
 }

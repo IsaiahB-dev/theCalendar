@@ -14,7 +14,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     private JButton bSubmit;
     private JPanel panel1, panel2;
     private JTextField startTextField, endTextField, dayTextField;
-    private CalendarGUI cal;
     private User user;
 
     //Constructor for AvailableTimeFormGUI
@@ -110,7 +109,9 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
                 }
-                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
+                timeWindow.setVisible(false);
+                timeWindow.dispose();
+                new MainWindowGUI(user);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank. No fields were updated. Try again.");
                 System.out.print("Exception caught here");
