@@ -1,11 +1,11 @@
 import java.util.*;
-public class UserCalendar {
+public class UserCalendar implements Comparable<UserCalendar>{
 
     // This is a list of the day class
     // Each day class is an array list of available times
     private List<AvailableTime> availableTimes = new ArrayList<>();
     String user = "";
-    private double matchPercent; // percent of primary user's
+    private Double matchPercent; // percent of primary user's
                                 // available time that matches
     private int id;
 
@@ -48,7 +48,7 @@ public class UserCalendar {
      *
      * @param matchPercent Method that will set the matched percentage of users from the CalendarRanker class
      */
-    public void setMatchPercent(double matchPercent) {
+    public void setMatchPercent(Double matchPercent) {
         this.matchPercent = matchPercent;
     }
 
@@ -56,7 +56,7 @@ public class UserCalendar {
      * Gets the matched percentage of users
      * @return returns the double value of the users' matched percentage
      */
-    public double getMatchPercent() {
+    public Double getMatchPercent() {
         return matchPercent;
     }
 
@@ -115,4 +115,9 @@ public class UserCalendar {
     public int getId() {
         return this.id;
     }
+
+    @Override
+  public int compareTo(UserCalendar u) {
+    return getMatchPercent().compareTo(u.getMatchPercent());
+  }
 }
