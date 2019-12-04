@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Calendar;
 
 public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
@@ -14,6 +15,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
    private JButton bSubmit;
    private JPanel panel1, panel2;
    private JTextField startTextField,endTextField, dayTextField;
+   private CalendarGUI cal;
     /* *
    Empty method at the moment
      */
@@ -137,6 +139,41 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                    }
                    else {
                        JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
+                   }
+
+                   int[] time = new int[13];
+                   for (int i = 0; i < time.length; i++){
+                       if (i == (start - 8)){
+                           while (i <= (end - 8)) {
+                               time[i] = 1;
+                               i++;
+                           }
+                           break;
+                       }
+                   }
+
+                   for(CalendarTime c : cal.CalTimes){
+                       if (day == 1){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setMonday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 2){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setTuesday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 3){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setWednesday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 4){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setThursday(CalendarTime.Times.Y);
+                           }
+                       } else if (day == 5){
+                           if(time[cal.CalTimes.indexOf(c)] == 1){
+                               c.setFriday(CalendarTime.Times.Y);
+                           }
+                       }
                    }
 
                 JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated only for fields input correctly.");
