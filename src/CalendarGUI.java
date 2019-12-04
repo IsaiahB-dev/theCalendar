@@ -1,58 +1,94 @@
 import javax.swing.*;
-import javax.swing.plaf.basic.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.border.Border;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-
 public class CalendarGUI {
-    public JTable calendar;
     public JPanel calendarPanel;
-    public JScrollPane scrollPane;
-    public List<CalendarTime> CalTimes;
-    public CalendarTableModel model;
-    CalendarGUI(){
+    public JLabel[][] calendar;
+    public JLabel[] headers;
+
+    /**
+     * The CalendarGUI is a simple multi-pane JFrame that displays a graphic depicting a user's listed AvailableTime
+     * objects from the XML database. The parameter for this class is an ArrayList of AvailableTime objects from the
+     * current user, and these objects are iterated through and siphoned for data. The GUI is nothing more than a
+     * 2D matrix of JLabels that update with each added AvailableTime.
+     * @param times
+     */
+    CalendarGUI(List<AvailableTime> times) {
         calendarPanel = new JPanel();
-        calendarPanel.setLayout(new BorderLayout());
+        calendarPanel.setLayout(new GridLayout(14, 6));
         calendarPanel.setVisible(true);
 
-        CalendarTime r1 = new CalendarTime(8, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r2 = new CalendarTime(9, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r3 = new CalendarTime(10, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r4 = new CalendarTime(11, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r5 = new CalendarTime(12, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r6 = new CalendarTime(1, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r7 = new CalendarTime(2, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r8 = new CalendarTime(3, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r9 = new CalendarTime(4, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r10 = new CalendarTime(5, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r11 = new CalendarTime(6, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r12 = new CalendarTime(7, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
-        CalendarTime r13 = new CalendarTime(8, CalendarTime.getMonday(), CalendarTime.getTuesday(), CalendarTime.getWednesday(), CalendarTime.getThursday(), CalendarTime.getFriday());
+        Border border = BorderFactory.createLineBorder(Color.GRAY, 1);
 
-        CalTimes = new ArrayList<>();
-        CalTimes.add(r1);
-        CalTimes.add(r2);
-        CalTimes.add(r3);
-        CalTimes.add(r4);
-        CalTimes.add(r5);
-        CalTimes.add(r6);
-        CalTimes.add(r7);
-        CalTimes.add(r8);
-        CalTimes.add(r9);
-        CalTimes.add(r10);
-        CalTimes.add(r11);
-        CalTimes.add(r12);
-        CalTimes.add(r13);
+        headers = new JLabel[6];
+        headers[0] = new JLabel("Time", SwingConstants.CENTER);
+        headers[1] = new JLabel("Monday", SwingConstants.CENTER);
+        headers[2] = new JLabel("Tuesday", SwingConstants.CENTER);
+        headers[3] = new JLabel("Wednesday", SwingConstants.CENTER);
+        headers[4] = new JLabel("Thursday", SwingConstants.CENTER);
+        headers[5] = new JLabel("Friday", SwingConstants.CENTER);
 
-        model = new CalendarTableModel(CalTimes);
-        calendar = new JTable(model);
-        calendar.setDefaultRenderer(CalendarTime.Times.class, new CalendarRenderer());
-        calendar.setRowHeight(35);
-        scrollPane = new JScrollPane();
-        scrollPane.setViewportView(calendar);
-        calendarPanel.add(scrollPane, BorderLayout.CENTER);
+        for (int i = 0; i < headers.length; i++){
+            headers[i].setBorder(border);
+            headers[i].setOpaque(true);
+            headers[i].setBackground(Color.LIGHT_GRAY);
+            calendarPanel.add(headers[i]);
+        }
+        calendar = new JLabel[13][6];
+        for (int i = 0; i < 13; i++){
+            for (int j = 0; j < 6; j++){
+                calendar[i][j] = new JLabel("");
+                calendar[i][j].setBorder(border);
+                calendarPanel.add(calendar[i][j]);
+            }
+        }
+        for (int i = 0; i < 4; i++){
+            calendar[i][0].setText((i + 8) + " AM");
+            calendar[i][0].setHorizontalAlignment(JLabel.CENTER);
+            calendar[i][0].setVerticalAlignment(JLabel.CENTER);
+        }
+        calendar[4][0].setText("12 PM");
+        calendar[4][0].setHorizontalAlignment(JLabel.CENTER);
+        calendar[4][0].setVerticalAlignment(JLabel.CENTER);
+
+        for(int i = 5; i < 13; i++){
+            calendar[i][0].setText((i - 4) + " PM");
+            calendar[i][0].setHorizontalAlignment(JLabel.CENTER);
+            calendar[i][0].setVerticalAlignment(JLabel.CENTER);
+        }
+
+        /**
+         * This chunk of code iterates through the given ArrayList of AvailableTime objects and then colors in a
+         * JLabel that corresponds with the AvailableTime data.
+         */
+        for (AvailableTime a : times){
+            if (a.getDay() == 1){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][1].setOpaque(true);
+                    calendar[i][1].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 2){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][2].setOpaque(true);
+                    calendar[i][2].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 3) {
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
+                    calendar[i][3].setOpaque(true);
+                    calendar[i][3].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 4) {
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++) {
+                    calendar[i][4].setOpaque(true);
+                    calendar[i][4].setBackground(Color.GREEN);
+                }
+            } else if (a.getDay() == 5){
+                for (int i = (a.getStartTime() - 8); i <= (a.getEndTime() - 8); i++){
+                    calendar[i][5].setOpaque(true);
+                    calendar[i][5].setBackground(Color.GREEN);
+                }
+            }
+        }
     }
 }

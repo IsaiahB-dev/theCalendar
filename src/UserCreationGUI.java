@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-
+/**
+ * User creation GUI class.
+ * Generates a window to create a user.
+ */
 public class UserCreationGUI extends JFrame implements ActionListener{
     
     JPanel panel;
@@ -13,7 +16,10 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     JPasswordField passwordText, cPasswordText;
     JButton createUser, cancel;
     User cUser;
-
+    /**
+     * Constructor for the user creation gui
+     * Will launch new window for the user to be created
+     */
     UserCreationGUI() {
         // This is the label for the username and text field for the user input
         userLabel = new JLabel();
@@ -59,10 +65,11 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         setTitle("Create User");
         setSize(500, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    // This is where we will add the calls to store the user in the database and log him in i believe
+   
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == cancel) {
@@ -88,8 +95,20 @@ public class UserCreationGUI extends JFrame implements ActionListener{
                 dispose();
                 // Adds the user to the list 
                 users.add(cUser);
-                // Calls function to save to file
+                // Calls function to save updated users to file
                 stream.saveUsers(users);
+
+
+                // Gets a list of the calendars
+                List<UserCalendar> calendars = stream.getCalendars();
+
+                // Time to update user calendar file
+                UserCalendar newCalendar = new UserCalendar(); // Creates a new calendar object for the new user
+                newCalendar.setId(user.getId()); // Sets the id to the new users id
+
+                calendars.add(newCalendar); // Add the new calendar to the list
+                // Save the updated list
+                stream.saveCalendars(calendars);
                 // Calls new main window with the new user 
                 new MainWindowGUI(cUser);
             }

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -8,18 +9,24 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
     //Variables
     private JFrame timeWindow;
+    private JFrame mainframe;
 
     private JLabel startTimeLabel, endTimeLabel, dayLabel;
     private JButton bSubmit;
     private JPanel panel1, panel2;
     private JTextField startTextField, endTextField, dayTextField;
-    private CalendarGUI cal;
     private User user;
 
-
+    /**
+     * The AvailableTimeFormGUI is a pop-up menu that is triggered by clicking the "Add Time" button in the MainWindowGUI.
+     * This class takes the current User object and created a new AvailableTime object to be displayed on the CalendarGUI and
+     * stored in the XMl database.
+     * @param user
+     */
     //Constructor for AvailableTimeFormGUI
-    AvailableTimeFormGUI(User user) {
+    AvailableTimeFormGUI(User user, JFrame mainframe) {
         this.user = user;
+        this.mainframe = mainframe;
 
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
@@ -95,25 +102,12 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                             DatabaseComm stream = new DatabaseComm();
                             List<UserCalendar> calendars = stream.getCalendars(); // Gets a list of the calendars
 
-                            // If the user has an id that is at max the size of the list he is already in the list 
-                            if (user.getId() <= calendars.size()) {
-                                UserCalendar cal = calendars.get(user.getId() - 1); // Pulls out the calendar to save the time to
-                                List<AvailableTime> times = cal.getAvailableTimes(); // Gets a list of that calendars times
-                                times.add(s); // Adds the time to the list 
-                                // Calls the function to save them to the file.
-                                stream.saveCalendars(calendars);
-                            }
-                            else { // If his id is larger then he is new and needs to be added 
-                                UserCalendar newCalendar = new UserCalendar(); // Creates a new calendar object for the new user
-                                newCalendar.setId(user.getId()); // Sets the id to the new users id
-                                // Get a list of available times from the new user calendar object
-                                List<AvailableTime> times = newCalendar.getAvailableTimes();
-                                times.add(s); // Add the new time to the new calendars list of times 
-                                calendars.add(newCalendar); // Add the new calendar to the list
-
-                                // Save the updated list
-                                stream.saveCalendars(calendars);
-                            }
+                            UserCalendar cal = calendars.get(user.getId() - 1); // Pulls out the calendar to save the time to
+                            List<AvailableTime> times = cal.getAvailableTimes(); // Gets a list of that calendars times
+                            times.add(s); // Adds the time to the list 
+                            // Calls the function to save them to the file.
+                            stream.saveCalendars(calendars);
+ 
                         } else {
                             JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
                         }
@@ -123,46 +117,15 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
                 }
-
-                int[] time = new int[13];
-                for (int i = 0; i < time.length; i++) {
-                    if (i >= (start - 8) && i <= (end - 8)) {
-                        time[i] = 1;
-                    } else {
-                        time[i] = 0;
-                    }
-                }
-                cal = new CalendarGUI();
-                for (CalendarTime c : cal.CalTimes) {
-                    if (day == 1) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setMonday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 2) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setTuesday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 3) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setWednesday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 4) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setThursday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 5) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setFriday(CalendarTime.Times.Y);
-                        }
-                    }
-                }
-                new CalendarGUI();
-                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
+                timeWindow.setVisible(false);
+                timeWindow.dispose();
+                mainframe.setVisible(false);
+                mainframe.dispose();
+                new MainWindowGUI(user);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank. No fields were updated. Try again.");
                 System.out.print("Exception caught here");
             }
         }
     }
-
 }

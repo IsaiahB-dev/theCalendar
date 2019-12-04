@@ -136,14 +136,120 @@
     </UserCalendar>
     <UserCalendar id="3">
         <AvailableTime>
-            <Day>3</Day>
-            <startTime>9</startTime>
-            <endTime>10</endTime>
+            <Day>1</Day>
+            <startTime>19</startTime>
+            <endTime>20</endTime>
         </AvailableTime>
         <AvailableTime>
+            <Day>2</Day>
+            <startTime>18</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>3</Day>
+            <startTime>19</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>18</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>17</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+    </UserCalendar>
+    <UserCalendar id="4">
+        <AvailableTime>
             <Day>1</Day>
+            <startTime>15</startTime>
+            <endTime>19</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>2</Day>
+            <startTime>8</startTime>
+            <endTime>12</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>2</Day>
+            <startTime>18</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>3</Day>
             <startTime>9</startTime>
-            <endTime>10</endTime>
+            <endTime>12</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>3</Day>
+            <startTime>13</startTime>
+            <endTime>15</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>8</startTime>
+            <endTime>11</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>16</startTime>
+            <endTime>19</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>8</startTime>
+            <endTime>11</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>13</startTime>
+            <endTime>15</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>19</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+    </UserCalendar>
+    <UserCalendar id="5">
+        <AvailableTime>
+            <Day>2</Day>
+            <startTime>17</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>17</startTime>
+            <endTime>20</endTime>
+        </AvailableTime>
+    </UserCalendar>
+    <UserCalendar id="6">
+        <AvailableTime>
+            <Day>1</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>2</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>3</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
         </AvailableTime>
     </UserCalendar>
 </calendars>
