@@ -84,11 +84,18 @@ public class RankingsGUI extends JPanel {
         // add up to 14 users to the ranking list
         for (int i = 0; i < numUsers && i < 14; i++) {
             String name = usernames.get(i);
-            JToggleButton jtb = new JToggleButton(name);
-            jtb.addActionListener(listener);
-            jtb.setPreferredSize(new Dimension(130, 30));
-            bg.add(jtb); // add button to group
-            rankingP.add(jtb); // add button to ranking panel
+            if(user.getUsername().equals(name))
+            {
+                // do nothing
+            }
+            else
+            {
+                JToggleButton jtb = new JToggleButton(name);
+                jtb.addActionListener(listener);
+                jtb.setPreferredSize(new Dimension(130, 30));
+                bg.add(jtb); // add button to group
+                rankingP.add(jtb); // add button to ranking panel
+            }
         }
 
         rankingP.setVisible(true);

@@ -58,10 +58,10 @@ public class MainWindowGUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == time) {
-            frame.setVisible(false);
-            frame.dispose();
+            //frame.setVisible(false);
+            //frame.dispose();
             // If the add time function is pressed the current user is passed in so the time is given to the correct user
-            new AvailableTimeFormGUI(this.user);
+            new AvailableTimeFormGUI(this.user, this.frame);
         }
     }
 

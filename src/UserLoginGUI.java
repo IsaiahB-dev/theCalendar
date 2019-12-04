@@ -36,7 +36,7 @@ public class UserLoginGUI extends JFrame implements ActionListener{
 
     
         // Button for the login action
-        login = new JButton("login");
+        login = new JButton("Login");
         newUser = new JButton("New User");
 
         // Creating the panel and setting a border around it

@@ -9,6 +9,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
     //Variables
     private JFrame timeWindow;
+    private JFrame mainframe;
 
     private JLabel startTimeLabel, endTimeLabel, dayLabel;
     private JButton bSubmit;
@@ -23,8 +24,9 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
      * @param user
      */
     //Constructor for AvailableTimeFormGUI
-    AvailableTimeFormGUI(User user) {
+    AvailableTimeFormGUI(User user, JFrame mainframe) {
         this.user = user;
+        this.mainframe = mainframe;
 
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
@@ -117,6 +119,8 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                 }
                 timeWindow.setVisible(false);
                 timeWindow.dispose();
+                mainframe.setVisible(false);
+                mainframe.dispose();
                 new MainWindowGUI(user);
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank. No fields were updated. Try again.");
