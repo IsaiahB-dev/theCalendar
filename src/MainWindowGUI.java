@@ -27,7 +27,7 @@ public class MainWindowGUI implements ActionListener{
 
         RankingsGUI r = new RankingsGUI();
         CalendarGUI c = new CalendarGUI();
-        frame.add(r.rankingIFrame, BorderLayout.EAST);
+        frame.add(r.rankingP, BorderLayout.EAST);
         frame.add(c.calendarPanel, BorderLayout.CENTER );
         frame.setSize(1000, 800);
         frame.setLocationRelativeTo(null);

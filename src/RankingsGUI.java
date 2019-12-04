@@ -10,14 +10,11 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 //
 
 public class RankingsGUI extends JPanel {
-
-    public JInternalFrame rankingIFrame;
-    public BasicInternalFrameUI rankingBIFrame;
+    public JPanel rankingP;
 
     RankingsGUI() {
-        rankingIFrame = new JInternalFrame();
         // Create panel to display the ranking of people with best-matched schedules
-        JPanel rankingP = new JPanel();
+        rankingP = new JPanel();
 
         // give ranking panel a Grid Layout
         // Grid Layout makes the buttons spread out and all be the same size
@@ -52,7 +49,7 @@ public class RankingsGUI extends JPanel {
 
         // username list will come from CalendarRanker (should also include user id)
         // it will be in order from best match to worst
-        String usernames[] = {"Jose Garcia Becerra", "Cameron Howell", "Isaiah Brooks", "Bob Barker", "Barak Obama", "Charles Ingalls", "Tim Allen"};
+        String[] usernames = {"Jose Garcia Becerra", "Cameron Howell", "Isaiah Brooks", "Bob Barker", "Barak Obama", "Charles Ingalls", "Tim Allen"};
 
         // number of users will come from length of list supplied by CalendarRanker
         int numUsers = usernames.length; // total number of users minus 1 (current user)
@@ -68,9 +65,5 @@ public class RankingsGUI extends JPanel {
         }
 
         rankingP.setVisible(true);
-        rankingIFrame.add(rankingP);
-        rankingBIFrame = (BasicInternalFrameUI) rankingIFrame.getUI();
-        rankingBIFrame.setNorthPane(null);
-        rankingIFrame.setVisible(true);
     }
 }
