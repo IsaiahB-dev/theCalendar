@@ -8,6 +8,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     // This is a list of the day class
     // Each day class is an array list of available times
     private List<AvailableTime> availableTimes = new ArrayList<>();
+    private List<AvailableTime> blankavailableTimes = new ArrayList<>();
     String user = "";
     private Double matchPercent; // percent of primary user's
                                 // available time that matches
@@ -22,6 +23,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
         this.availableTimes = availableTimeList;
         this.user = userName;
         this.matchPercent = 0.0;
+        this.blankavailableTimes.add(new AvailableTime(0,0,0));
     }
 
     /**
@@ -76,6 +78,14 @@ public class UserCalendar implements Comparable<UserCalendar>{
      */
     public List<AvailableTime> getAvailableTimes() {
         return availableTimes;
+    }
+
+    /**
+     * Gets blank available times list (like NULL)
+     * @return returns NULL available times
+     */
+    public List<AvailableTime> getblankavailableTimes() {
+        return blankavailableTimes;
     }
 
     /**
