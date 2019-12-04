@@ -2,101 +2,89 @@
 <calendars>
     <UserCalendar id= "1">
         <AvailableTime>
-            <Day>0</Day>
+            <Day>1</Day>
             <startTime>9</startTime>
             <endTime>11</endTime>
-            <priority>0</priority>
         </AvailableTime>
-
-        <AvailableTime>
-            <Day>0</Day>
-            <startTime>4</startTime>
-            <endTime>6</endTime>
-            <priority>0</priority>
-        </AvailableTime>
-
-
 
         <AvailableTime>
             <Day>1</Day>
+            <startTime>4</startTime>
+            <endTime>6</endTime>
+        </AvailableTime>
+
+
+
+        <AvailableTime>
+            <Day>2</Day>
             <startTime>10</startTime>
             <endTime>11</endTime>
-            <priority>1</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>1</Day>
+            <Day>2</Day>
             <startTime>2</startTime>
             <endTime>3</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>1</Day>
+            <Day>2</Day>
             <startTime>6</startTime>
             <endTime>8</endTime>
-            <priority>0</priority>
-        </AvailableTime>
-
-
-
-        <AvailableTime>
-            <Day>2</Day>
-            <startTime>9</startTime>
-            <endTime>11</endTime>
-            <priority>0</priority>
-        </AvailableTime>
-
-        <AvailableTime>
-            <Day>2</Day>
-            <startTime>4</startTime>
-            <endTime>6</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
 
 
         <AvailableTime>
             <Day>3</Day>
+            <startTime>9</startTime>
+            <endTime>11</endTime>
+        </AvailableTime>
+
+        <AvailableTime>
+            <Day>3</Day>
+            <startTime>4</startTime>
+            <endTime>6</endTime>
+        </AvailableTime>
+
+
+
+        <AvailableTime>
+            <Day>4</Day>
             <startTime>10</startTime>
             <endTime>11</endTime>
-            <priority>1</priority>
         </AvailableTime>
         
         <AvailableTime>
-            <Day>3</Day>
+            <Day>4</Day>
             <startTime>2</startTime>
             <endTime>3</endTime>
-            <priority>0</priority>
         </AvailableTime>
-        <AvailableTime>
-            <Day>3</Day>
-            <startTime>6</startTime>
-            <endTime>8</endTime>
-            <priority>0</priority>
-        </AvailableTime>
-
-
 
         <AvailableTime>
             <Day>4</Day>
+            <startTime>6</startTime>
+            <endTime>8</endTime>
+        </AvailableTime>
+
+
+
+        <AvailableTime>
+            <Day>5</Day>
             <startTime>8</startTime>
             <endTime>11</endTime>
-            <priority>1</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>4</Day>
+            <Day>5</Day>
             <startTime>12</startTime>
             <endTime>2</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>4</Day>
+            <Day>5</Day>
             <startTime>6</startTime>
             <endTime>8</endTime>
-            <priority>0</priority>
         </AvailableTime>
     </UserCalendar>
 
@@ -105,100 +93,89 @@
 
     <UserCalendar id= "2">
         <AvailableTime>
-            <Day>0</Day>
+            <Day>1</Day>
             <startTime>10</startTime>
             <endTime>11</endTime>
-            <priority>1</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>0</Day>
+            <Day>1</Day>
             <startTime>6</startTime>
             <endTime>8</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
 
 
         <AvailableTime>
-            <Day>1</Day>
+            <Day>2</Day>
             <startTime>8</startTime>
             <endTime>10</endTime>
-            <priority>0</priority>
         </AvailableTime>
+
         <AvailableTime>
-            <Day>1</Day>
+            <Day>2</Day>
             <startTime>3</startTime>
             <endTime>5</endTime>
-            <priority>0</priority>
         </AvailableTime>
+
         <AvailableTime>
-            <Day>1</Day>
+            <Day>2</Day>
             <startTime>7</startTime>
             <endTime>8</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
 
 
         <AvailableTime>
-            <Day>2</Day>
+            <Day>3</Day>
             <startTime>10</startTime>
             <endTime>12</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>2</Day>
+            <Day>3</Day>
             <startTime>5</startTime>
             <endTime>7</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
 
 
         <AvailableTime>
-            <Day>3</Day>
+            <Day>4</Day>
             <startTime>9</startTime>
             <endTime>11</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>3</Day>
+            <Day>4</Day>
             <startTime>12</startTime>
             <endTime>1</endTime>
-            <priority>1</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>3</Day>
+            <Day>4</Day>
             <startTime>3</startTime>
             <endTime>5</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
 
 
         <AvailableTime>
-            <Day>4</Day>
+            <Day>5</Day>
             <startTime>8</startTime>
             <endTime>9</endTime>
-            <priority>0</priority>
         </AvailableTime>
 
         <AvailableTime>
-            <Day>4</Day>
+            <Day>5</Day>
             <startTime>10</startTime>
             <endTime>12</endTime>
-            <priority>0</priority>
         </AvailableTime>
         
         <AvailableTime>
-            <Day>4</Day>
+            <Day>5</Day>
             <startTime>4</startTime>
             <endTime>7</endTime>
-            <priority>1</priority>
         </AvailableTime>
     </UserCalendar>
 </calendars>
