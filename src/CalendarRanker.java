@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Collections;
 import java.util.NoSuchElementException;
 
@@ -10,16 +10,33 @@ import java.util.NoSuchElementException;
 // CalendarRanker re-ranks everyone when the user updates their calendar
 
 public class CalendarRanker {
-    public ArrayList<UserCalendar> calendars;
-    public UserCalendar userCalendar; // need to access the user's calendar
+    private User user; // need to know who the current user is
+    private UserCalendar userCalendar; // need to access the current user's calendar
 
-    public CalendarRanker(ArrayList<UserCalendar> calendars, UserCalendar userCalendar) {
-        this.calendars = calendars;
-        this.userCalendar = userCalendar;
-    }
+    private List<User> users; // list of all the users
+    private List<UserCalendar> calendars; // list of all the calendars
 
-    public void addCalendar(UserCalendar acalendar) {
-        this.calendars.add(acalendar);
+    // Should we have another list that we sort according to
+
+    // Constructor to be called by RankingsGUI
+    public CalendarRanker() {
+        // Get the current user's data (user id and calendar)
+        // I can't think of how to do this @@$@#%@%@#%@#%@#
+        //this.user = user;
+        //this.userCalendar = userCalendar;
+
+        // Create the database object to stream data
+        DatabaseComm stream = new DatabaseComm();
+
+        // Grabbing the data from the database
+        this.users = stream.getUsers();         // Returns a list of users
+        this.calendars = stream.getCalendars(); // Returns a list of the users' calendars
+
+        // Now that we have all the data, run the ranking function to update the matchPercent values
+        // It also needs to provide a sorted list to the GUI
+        calculateMatch();
+
+
     }
 
     public void calculateMatch() {
