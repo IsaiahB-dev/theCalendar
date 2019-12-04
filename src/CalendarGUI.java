@@ -2,11 +2,15 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.util.List;
-
 public class CalendarGUI {
     public JPanel calendarPanel;
     public JLabel[][] calendar;
     public JLabel[] headers;
+
+    /**
+     * The CalendarGUI
+     * @param times
+     */
     CalendarGUI(List<AvailableTime> times) {
         calendarPanel = new JPanel();
         calendarPanel.setLayout(new GridLayout(14, 6));
