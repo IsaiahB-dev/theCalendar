@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 
 public class UserCreationGUI extends JFrame implements ActionListener{
@@ -65,12 +66,22 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == cancel) {
-            System.out.println("Cancelled");
-            setVisible(false);
+            setVisible(false); // Can no longer see jframe
+            dispose(); // Destroy jframe object
+            new UserLoginGUI();
 
         }
         else if(ae.getSource() == createUser) {
-            System.out.println("User Created");
+            DatabaseComm stream = new DatabaseComm();
+            List<User> users = stream.getUsers();
+
+            // The new user to be used for this instance I dont know if this will be accessible after this
+            User user = new User(); 
+            user.createUser(usernameText.getText(), passwordText.getText());
+            setVisible(false);
+            dispose();
+            new MainWindowGUI();
+
         }
 
     }

@@ -28,6 +28,10 @@ public class User {
         {
             this.userName = name;
             this.password = pass;
+            
+            DatabaseComm data = new DatabaseComm();
+            List<User> people = data.getUsers();
+            this.id = people.size() + 1;
         }
 
         /**
@@ -36,11 +40,36 @@ public class User {
         public User() {}
 
         /**
-         * Returns the username for comparisons
+         * Gets the username
+         * @return: User name
          */
         public String getUsername()
         {
             return userName;
+        }
+
+        /**
+         * Gets the users password
+         * @return: Password
+         */
+        public String getPassword()
+        {
+            return password;
+        }
+
+        /**
+         * Sets the users id to a specified one
+         * @param id: The identifier for this user 
+         */
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        /**
+         * Returns the users id
+         */
+        public int getId() {
+            return id;
         }
 
         /**
