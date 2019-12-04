@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
+/**
+ * AvailableTime public class that holds the variables for the user's attributes
+ */
 public class AvailableTime {
     // These are needed for reading from file
     private int startTime;
@@ -29,25 +27,50 @@ public class AvailableTime {
      */
     public AvailableTime(){}
 
+    /**
+     * Gets the start time from the AvailableTimeFormGUI class
+     * @return returns the int value of the start time if value is less than 21 and greater than 7 (military time)
+     */
     public int getStartTime() {
         return startTime;
     }
-
+    /**
+     * Gets the end time from the AvailableTimeFormGUI class
+     * @return returns the int value of the end time if value less than 21 (military time)
+     */
     public int getEndTime() {
         return endTime;
     }
 
+    /**
+     * Gets the day from the AvailableTimeFormGUI class
+     * @return returns the int value of the day if value is less than 5
+     */
+    public int getDay(){
+            return day;
+    }
 
-    public int getDay(){ return day; }
-
+    /**
+     *
+     * @param startTime Method that will set the start time value that is given from the AvailableTimeFormGUI class
+     */
     public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
 
+    /**
+     *
+     * @param endTime  Method that will set the end time value that is given from the AvailableTimeFormGUI class
+     */
     public void setEndTime(int endTime) {
         this.endTime = endTime;
     }
 
-
-    public void setDay(int day) { this.day = day;}
+    /**
+     *
+     * @param day Method that will set the day value that is given from the AvailableTimeFormGUI class
+     */
+    public void setDay(int day) {
+        this.day = day;
+    }
 }

@@ -106,7 +106,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     }
 
     /*
-    Actions that will be performed once thes ubmit button is clicked.
+    Actions that will be performed once the submit button is clicked.
      The values placed inside each of the JtextFields will be captured.
     */
     public void actionPerformed(ActionEvent e) {
