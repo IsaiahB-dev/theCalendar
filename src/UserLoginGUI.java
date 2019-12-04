@@ -9,9 +9,11 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     JLabel userLabel, passwordLabel;
     JTextField usernameText, passwordText;
     JButton login, newUser;
+    User user;
 
     
-    UserLoginGUI() {
+    UserLoginGUI(User user) {
+        this.user = user;
 
         // This is the label for the username and text field for the user input
         userLabel = new JLabel();
@@ -58,16 +60,20 @@ public class UserLoginGUI extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        User user = new User();
+        User tmpUser = new User();
 
         if (ae.getSource() == login)
         {
-            boolean result = user.login(usernameText.getText(), passwordText.getText());
+            // Validates user
+            boolean result = tmpUser.login(usernameText.getText(), passwordText.getText());
 
             if (result == true) {
                 setVisible(false);
                 dispose();
-                new MainWindowGUI();
+                user = tmpUser;
+
+                // Passes the validated user to the main window 
+                new MainWindowGUI(user);
             }
             else {
                 JOptionPane.showMessageDialog(panel, "Incorrect Credentials try again.\n Or create new user.");
@@ -77,11 +83,8 @@ public class UserLoginGUI extends JFrame implements ActionListener{
         {
             setVisible(false);
             dispose();
+            // If a new user is chosen then the new user creation form is called
             new UserCreationGUI();
         }
-    }
-
-    public static void main(String[] args) {
-        new UserLoginGUI();
     }
 }
