@@ -225,4 +225,31 @@
             <endTime>20</endTime>
         </AvailableTime>
     </UserCalendar>
+    <UserCalendar id="6">
+        <AvailableTime>
+            <Day>1</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>2</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>3</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>4</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+        <AvailableTime>
+            <Day>5</Day>
+            <startTime>8</startTime>
+            <endTime>16</endTime>
+        </AvailableTime>
+    </UserCalendar>
 </calendars>

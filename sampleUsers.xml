@@ -20,4 +20,8 @@
         <userName>Mr T</userName>
         <password>test</password>
     </User>
+    <User id="6">
+        <userName>Mr Rogers</userName>
+        <password>test</password>
+    </User>
 </Users>
