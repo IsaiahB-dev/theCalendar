@@ -36,12 +36,20 @@ public class RankingsGUI extends JPanel {
         // create action listener for the ranking listings
         ActionListener listener = actionEvent ->
             {
-                AbstractButton ab = (AbstractButton) actionEvent.getSource();
-                boolean selected = ab.getModel().isSelected();
-                System.out.println(actionEvent.getActionCommand() + " Selected = " + selected);
-                // Need to include action to display selected user's calendar overlay (only where matching)
-                // That should be a function from CalendarGUI where you supply it the user id number
+                DatabaseComm stream = new DatabaseComm();
+                List<User> users = stream.getUsers();
+                List<UserCalendar> calendars = stream.getCalendars();
 
+                for (int i = 0; i < users.size(); i++) {
+                    if (users.get(i).getUsername().equals(actionEvent.getActionCommand())) {
+                        for (int j = 0; j < calendars.size(); j++) {
+                            if (users.get(i).getId() == calendars.get(j).getId()) {
+                                List<AvailableTime> times = calendars.get(j).getAvailableTimes();
+                                // Code here
+                            }
+                        }
+                    }
+                }
             };
 
         // get preferred frame sizing
@@ -71,7 +79,7 @@ public class RankingsGUI extends JPanel {
 
         // add up to 14 users to the ranking list
         for (int i = 0; i < numUsers && i < 14; i++) {
-            String name = (i+1)  + " - " +  usernames.get(i);
+            String name = usernames.get(i);
             JToggleButton jtb = new JToggleButton(name);
             jtb.addActionListener(listener);
             jtb.setPreferredSize(new Dimension(130, 30));
