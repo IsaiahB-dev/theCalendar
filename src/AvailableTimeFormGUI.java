@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -15,7 +16,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     private JTextField startTextField, endTextField, dayTextField;
     private CalendarGUI cal;
     private User user;
-
 
     //Constructor for AvailableTimeFormGUI
     AvailableTimeFormGUI(User user) {
@@ -123,40 +123,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
                 }
-
-                int[] time = new int[13];
-                for (int i = 0; i < time.length; i++) {
-                    if (i >= (start - 8) && i <= (end - 8)) {
-                        time[i] = 1;
-                    } else {
-                        time[i] = 0;
-                    }
-                }
-                cal = new CalendarGUI();
-                for (CalendarTime c : cal.CalTimes) {
-                    if (day == 1) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setMonday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 2) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setTuesday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 3) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setWednesday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 4) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setThursday(CalendarTime.Times.Y);
-                        }
-                    } else if (day == 5) {
-                        if (time[cal.CalTimes.indexOf(c)] == 1) {
-                            c.setFriday(CalendarTime.Times.Y);
-                        }
-                    }
-                }
-                new CalendarGUI();
                 JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank. No fields were updated. Try again.");
@@ -164,5 +130,4 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
             }
         }
     }
-
 }
