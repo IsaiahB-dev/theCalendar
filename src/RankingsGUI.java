@@ -9,12 +9,16 @@ import javax.swing.JToggleButton;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.xml.crypto.Data;
 
-// Displays ranking list of people whose schedules best match user
-//
-
+/**
+ * GUI to display the users of a ranked list based on match percentage
+ */
 public class RankingsGUI extends JPanel {
     public JPanel rankingP;
 
+    /**
+     * Creates and populates the rankings GUI with the list of users.
+     * @param user: The current logged in user.
+     */
     RankingsGUI(User user) {
         // Create panel to display the ranking of people with best-matched schedules
         rankingP = new JPanel();

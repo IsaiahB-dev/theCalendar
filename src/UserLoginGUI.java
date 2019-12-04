@@ -3,6 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * User login GUI class.
+ * Generates a window for the user to log into the software.
+ */
 public class UserLoginGUI extends JFrame implements ActionListener{
     
     JPanel panel;
@@ -12,7 +16,10 @@ public class UserLoginGUI extends JFrame implements ActionListener{
     JButton login, newUser;
     User user;
 
-    
+    /**
+     * Constructor to call the user login GUI 
+     * @param user: the current user logged into the software
+     */
     UserLoginGUI(User user) {
         this.user = user;
 

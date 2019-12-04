@@ -4,7 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-
+/**
+ * User creation GUI class.
+ * Generates a window to create a user.
+ */
 public class UserCreationGUI extends JFrame implements ActionListener{
     
     JPanel panel;
@@ -13,7 +16,10 @@ public class UserCreationGUI extends JFrame implements ActionListener{
     JPasswordField passwordText, cPasswordText;
     JButton createUser, cancel;
     User cUser;
-
+    /**
+     * Constructor for the user creation gui
+     * Will launch new window for the user to be created
+     */
     UserCreationGUI() {
         // This is the label for the username and text field for the user input
         userLabel = new JLabel();
@@ -62,7 +68,7 @@ public class UserCreationGUI extends JFrame implements ActionListener{
         setVisible(true);
     }
 
-    // This is where we will add the calls to store the user in the database and log him in i believe
+   
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == cancel) {

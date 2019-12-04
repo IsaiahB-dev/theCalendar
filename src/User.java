@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to represent a user and store their information
+ */
 public class User {
         private String userName;
         private String password;

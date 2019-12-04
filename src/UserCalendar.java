@@ -1,4 +1,8 @@
 import java.util.*;
+
+/**
+ * Class to hold an individuals free time schedule
+ */
 public class UserCalendar implements Comparable<UserCalendar>{
 
     // This is a list of the day class
@@ -9,6 +13,11 @@ public class UserCalendar implements Comparable<UserCalendar>{
                                 // available time that matches
     private int id;
 
+    /**
+     * Constructor to create user calendar
+     * @param availableTimeList: List of available times 
+     * @param userName: The users username
+     */
     public UserCalendar(List<AvailableTime> availableTimeList, String userName) {
         this.availableTimes = availableTimeList;
         this.user = userName;
@@ -20,24 +29,9 @@ public class UserCalendar implements Comparable<UserCalendar>{
      */
     public UserCalendar() {}
 
-    public void refresh(AvailableTime Refresh) {
-
-    }
-
-
-
-    public void updateSavedSchedule() {
-
-    }
-
-    // Needs to have parser implemented
-    public void createSchedulerFromFile() {
-
-
-    }
 
     /**
-     *
+     * Function to append a tim to the list of available times
      * @param AddTime Method that will add time to available times
      */
     public void addTime (AvailableTime AddTime) {
@@ -45,15 +39,15 @@ public class UserCalendar implements Comparable<UserCalendar>{
 
     }
     /**
-     *
-     * @param matchPercent Method that will set the matched percentage of users from the CalendarRanker class
+     * Sets a percentage for how much this schedule matched another users
+     * @param matchPercent: Double value of matched schedule to user
      */
     public void setMatchPercent(Double matchPercent) {
         this.matchPercent = matchPercent;
     }
 
     /**
-     * Gets the matched percentage of users
+     * Gets the matched percentage of users schedules to the current user
      * @return returns the double value of the users' matched percentage
      */
     public Double getMatchPercent() {
@@ -61,7 +55,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     /**
-     *
+     * Sets the users username
      * @param userName Method that will set the user's username
      */
     public void setUserName(String userName) {
@@ -77,7 +71,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     /**
-     * gets the available times from the list of available times
+     * Gets the available times from the list of available times
      * @return returns the available time from the list of available times
      */
     public List<AvailableTime> getAvailableTimes() {
@@ -85,7 +79,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     /**
-     *
+     *  Sets users list of available times to a given list of avialable times 
      * @param availableTimes Method that will set the user's available time
      */
     public void setAvailableTimes(List<AvailableTime> availableTimes) {
@@ -93,7 +87,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     /**
-     *
+     * Add available time to list of users times
      * @param time Method that adds the available time to the list of available times
      */
     public void addAvailableTime(AvailableTime time) {
@@ -101,7 +95,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     /**
-     *
+     * Set the users id
      * @param id Method that sets the user's ID
      */
     public void setId(int id) {
@@ -117,7 +111,7 @@ public class UserCalendar implements Comparable<UserCalendar>{
     }
 
     @Override
-  public int compareTo(UserCalendar u) {
-    return getMatchPercent().compareTo(u.getMatchPercent());
-  }
+    public int compareTo(UserCalendar u) {
+        return getMatchPercent().compareTo(u.getMatchPercent());
+    }
 }
