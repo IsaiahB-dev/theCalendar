@@ -44,7 +44,7 @@ public class AvailableTime {
 
     /**
      * Gets the day from the AvailableTimeFormGUI class
-     * @return returns the int value of the day if value is less than 5
+     * @return returns the int value of the day if value is greater than 0 and less than 6
      */
     public int getDay(){
             return day;
