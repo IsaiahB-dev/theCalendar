@@ -8,8 +8,11 @@ public class MainWindowGUI implements ActionListener{
     JFrame frame;
     JPanel buttonsP;
     JButton time;
+    User user;
 
-    MainWindowGUI() {
+    MainWindowGUI(User user) {
+        this.user = user;
+
         frame = new JFrame("Calendar Scheduler");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -28,21 +31,32 @@ public class MainWindowGUI implements ActionListener{
         RankingsGUI r = new RankingsGUI();
         CalendarGUI c = new CalendarGUI();
         frame.add(r.rankingP, BorderLayout.EAST);
-        frame.add(c.calendarPanel, BorderLayout.CENTER );
+        frame.add(c.calendarPanel, BorderLayout.CENTER);
         frame.setSize(1000, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
-    // This is where we will add the calls to store the user in the database and log him in i believe
+    // This is where we will add the calls to store the user in the database and log
+    // him in i believe
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == time)
-        {
-            new AvailableTimeFormGUI();
+        if (ae.getSource() == time) {
+            // If the add time function is pressed the current user is passed in so the time is given to the correct user
+            new AvailableTimeFormGUI(this.user);
         }
     }
 
+    /**
+     * This is the main function to initialize the software
+     * @param args
+     */
+    public static void main(String[] args) {
+        // Generates a user for the program
+        User mainUser = new User();
 
-    public static void main(String[] args) { new MainWindowGUI(); }
+        // Passes it to the login gui to be populated.
+        new UserLoginGUI(mainUser);
+
+    }
 }
