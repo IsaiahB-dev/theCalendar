@@ -1,22 +1,23 @@
-<?xml version = "1.0"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Users>
-   <User id= "1">
-      <userName>Cameron Howell</userName>
-      <password>test1</password>
-   </User>
-	
-   <User id= "2">
-      <userName>Jose Garcia Becerra</userName>
-      <password>test2</password>
-   </User>
-
-   <User id= "3">
-      <userName>Rich Hansen</userName>
-      <password>test3</password>
-   </User>
-
-   <User id= "4">
-      <userName>Isaiah Brooks</userName>
-      <password>test4</password>
-   </User>
+    <User id="1">
+        <userName>Cameron Howell</userName>
+        <password>test1</password>
+    </User>
+    <User id="2">
+        <userName>Jose Garcia Becerra</userName>
+        <password>test2</password>
+    </User>
+    <User id="3">
+        <userName>Rich Hansen</userName>
+        <password>test3</password>
+    </User>
+    <User id="4">
+        <userName>Isaiah Brooks</userName>
+        <password>test4</password>
+    </User>
+    <User id="5">
+        <userName>Mr T</userName>
+        <password>test</password>
+    </User>
 </Users>
