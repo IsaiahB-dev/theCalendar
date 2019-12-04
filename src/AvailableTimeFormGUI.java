@@ -13,14 +13,15 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
    private JPanel panel1, panel2;
    private JTextField startTextField,endTextField, dayTextField;
    private CalendarGUI cal;
+   private User user;
     /* *
    Empty method at the moment
      */
     public void setCalendarTimes() {
     }
     //Constructor for AvailableTimeFormGUI
-    AvailableTimeFormGUI() {
-
+    AvailableTimeFormGUI(User user) {
+        this.user = user;
 
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
@@ -71,14 +72,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
-
-    public static void main(String[] args) {
-
-
-        new AvailableTimeFormGUI();
-    }
-
     /**
      *
      * @param e Method that will be performed once the bSubmit button is clicked.
@@ -100,6 +93,8 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
                                 s.setDay(day);
                                 s.setStartTime(start);
                                 s.setEndTime(end);
+
+                                // Logic here for adding the time to the Usercalendar
                             }
                             else {
                                 JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
