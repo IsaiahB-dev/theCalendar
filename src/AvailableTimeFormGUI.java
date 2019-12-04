@@ -6,19 +6,21 @@ import java.util.Calendar;
 public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
     //Variables
-   private JFrame timeWindow;
+    private JFrame timeWindow;
 
-   private JLabel startTimeLabel,endTimeLabel , dayLabel;
-   private JButton bSubmit;
-   private JPanel panel1, panel2;
-   private JTextField startTextField,endTextField, dayTextField;
-   private CalendarGUI cal;
-   private User user;
+    private JLabel startTimeLabel, endTimeLabel, dayLabel;
+    private JButton bSubmit;
+    private JPanel panel1, panel2;
+    private JTextField startTextField, endTextField, dayTextField;
+    private CalendarGUI cal;
+    private User user;
+
     /* *
    Empty method at the moment
      */
     public void setCalendarTimes() {
     }
+
     //Constructor for AvailableTimeFormGUI
     AvailableTimeFormGUI(User user) {
         this.user = user;
@@ -43,8 +45,8 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         // Used GridLayout because the content looks better
         //Still trying to figure out how to center the the submit button on panel2
 
-        panel1 = new JPanel(new GridLayout(5,5 , 2, 2));
-        panel2 = new JPanel(new GridLayout(1,1 ,1, 3));
+        panel1 = new JPanel(new GridLayout(5, 5, 2, 2));
+        panel2 = new JPanel(new GridLayout(1, 1, 1, 3));
         //panel.setBorder(BorderFactory.createEmptyBorder(50, 10, 150, 10));
         add(panel1, BorderLayout.CENTER);
         add(panel2, BorderLayout.CENTER);
@@ -57,7 +59,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         panel1.add(endTimeLabel);
         panel1.add(endTextField);
         panel1.add(dayLabel);
-        panel1.add (dayTextField);
+        panel1.add(dayTextField);
         panel1.add(panel2);
         panel2.add(bSubmit);
 
@@ -73,79 +75,72 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
     }
 
     /**
-     *
      * @param e Method that will be performed once the bSubmit button is clicked.
-     *      The values placed inside each of the JtextFields will be captured
-     *      and place into the setStartTime, setEndTime, setDay objects of the AvailableTime class.
+     *          The values placed inside each of the JtextFields will be captured
+     *          and place into the setStartTime, setEndTime, setDay objects of the AvailableTime class.
      */
     public void actionPerformed(ActionEvent e) {
         AvailableTime s = new AvailableTime();
-            if(e.getSource() == bSubmit) {
-               //try,catch block that catches error when user leaves a JtextField blank
-                try {
-                    int start = Integer.parseInt(startTextField.getText());
-                    int day = Integer.parseInt(dayTextField.getText());
-                    int end = Integer.parseInt(endTextField.getText());
+        if (e.getSource() == bSubmit) {
+            //try,catch block that catches error when user leaves a JtextField blank
+            try {
+                int start = Integer.parseInt(startTextField.getText());
+                int day = Integer.parseInt(dayTextField.getText());
+                int end = Integer.parseInt(endTextField.getText());
 
-                    if(start > 7 && start < 21) {
-                        if(end < 21) {
-                            if(day < 6 && day > 0) {
-                                s.setDay(day);
-                                s.setStartTime(start);
-                                s.setEndTime(end);
+                if (start > 7 && start < 21) {
+                    if (end < 21) {
+                        if (day < 6 && day > 0) {
+                            s.setDay(day);
+                            s.setStartTime(start);
+                            s.setEndTime(end);
 
-                                // Logic here for adding the time to the Usercalendar
-                            }
-                            else {
-                                JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
-                            }
+                            // Logic here for adding the time to the Usercalendar
+                        } else {
+                            JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your day, try again.");
                         }
-                        else {
-                            JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your end time, try again.");
-                        }
+                    } else {
+                        JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your end time, try again.");
                     }
-                   else {
-                        JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
-                    }
-
-                   int[] time = new int[13];
-                   for (int i = 0; i < time.length; i++){
-                       if (i == (start - 8)){
-                           while (i <= (end - 8)) {
-                               time[i] = 1;
-                               i++;
-                           }
-                           break;
-                       }
-                   }
-
-                   for(CalendarTime c : cal.CalTimes){
-                       if (day == 1){
-                           if(time[cal.CalTimes.indexOf(c)] == 1){
-                               c.setMonday(CalendarTime.Times.Y);
-                           }
-                       } else if (day == 2){
-                           if(time[cal.CalTimes.indexOf(c)] == 1){
-                               c.setTuesday(CalendarTime.Times.Y);
-                           }
-                       } else if (day == 3){
-                           if(time[cal.CalTimes.indexOf(c)] == 1){
-                               c.setWednesday(CalendarTime.Times.Y);
-                           }
-                       } else if (day == 4){
-                           if(time[cal.CalTimes.indexOf(c)] == 1){
-                               c.setThursday(CalendarTime.Times.Y);
-                           }
-                       } else if (day == 5){
-                           if(time[cal.CalTimes.indexOf(c)] == 1){
-                               c.setFriday(CalendarTime.Times.Y);
-                           }
-                       }
-                   }
-                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
+                } else {
+                    JOptionPane.showMessageDialog(timeWindow, "You input the wrong value for your start time, try again.");
                 }
 
-                catch (NumberFormatException ex) {
+                int[] time = new int[13];
+                for (int i = 0; i < time.length; i++) {
+                    if (i >= (start - 8) && i <= (end - 8)) {
+                        time[i] = 1;
+                    } else {
+                        time[i] = 0;
+                    }
+                }
+                cal = new CalendarGUI();
+                for (CalendarTime c : cal.CalTimes) {
+                    if (day == 1) {
+                        if (time[cal.CalTimes.indexOf(c)] == 1) {
+                            c.setMonday(CalendarTime.Times.Y);
+                        }
+                    } else if (day == 2) {
+                        if (time[cal.CalTimes.indexOf(c)] == 1) {
+                            c.setTuesday(CalendarTime.Times.Y);
+                        }
+                    } else if (day == 3) {
+                        if (time[cal.CalTimes.indexOf(c)] == 1) {
+                            c.setWednesday(CalendarTime.Times.Y);
+                        }
+                    } else if (day == 4) {
+                        if (time[cal.CalTimes.indexOf(c)] == 1) {
+                            c.setThursday(CalendarTime.Times.Y);
+                        }
+                    } else if (day == 5) {
+                        if (time[cal.CalTimes.indexOf(c)] == 1) {
+                            c.setFriday(CalendarTime.Times.Y);
+                        }
+                    }
+                }
+                new CalendarGUI();
+                JOptionPane.showMessageDialog(timeWindow, "Your available time has been updated.");
+            } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(timeWindow, "Do not input any letters or symbols and do not leave any fields blank. No fields were updated. Try again.");
                 System.out.print("Exception caught here");
             }
