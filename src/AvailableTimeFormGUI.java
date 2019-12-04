@@ -39,8 +39,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         timeWindow = new JFrame("Available Time Form (Military Time)");
         //Set the size of the frame and set the frame visible.
         timeWindow.setSize(500, 500);
-        //Set background color for timeWindow
-        timeWindow.setBackground(Color.cyan);
         //Created labels for the start time, end time, and day placeholders
         startTimeLabel = new JLabel("    Enter Start Time between 8 - 20 (Only the hour)");
         endTimeLabel = new JLabel("    Enter End Time between 8 - 20 (Only the hour)");
@@ -66,9 +64,6 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
         //created a button for submission, along with bounds
         bSubmit = new JButton("Submit Here");
         bSubmit.setBounds(50, 150, 90, 50);
-        //Set background color for panel1 & panel2
-        panel1.setBackground(Color.YELLOW);
-        panel2.setBackground(Color.YELLOW);
         //added the contents to the panel1
         panel1.add(startTimeLabel);
         panel1.add(startTextField);
@@ -97,7 +92,7 @@ public class AvailableTimeFormGUI extends JFrame implements ActionListener {
 
         //added the panel to the frame.
         timeWindow.add(panel1);
-
+        timeWindow.setLocationRelativeTo(null);
         timeWindow.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
