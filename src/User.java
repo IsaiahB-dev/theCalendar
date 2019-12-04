@@ -122,6 +122,10 @@ public class User {
 
                 if (currentP.getUsername().equals(name))
                 {
+                    // If the validation is succesful then it populates the user with the correct info that already exists
+                    this.userName = currentP.getUsername();
+                    this.password = currentP.getPassword();
+                    this.id = currentP.getId();
                     return true;
                 }
             }
